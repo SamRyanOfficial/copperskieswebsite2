@@ -29,13 +29,12 @@ const shows = [
     isFree: true,
   },
   {
-    date: "Aug 2",
-    venue: "The Atrium, Wintec",
-    location: "Waikato",
-    time: "Waikato Wedding Expo",
+    date: "Aug 3",
+    venue: "Astrolabe",
+    location: "Mount Maunganui",
+    time: "4:00 PM",
     year: "2025",
-    isFree: false,
-    ticketLink: "https://thewaikatoweddingaffair.co.nz/event/the-waikato-wedding-affair-2025/",
+    isFree: true,
   },
 ]
 
