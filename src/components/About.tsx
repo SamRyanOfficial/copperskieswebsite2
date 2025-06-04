@@ -30,10 +30,10 @@ export default function About() {
                 <span className="font-semibold text-orange-400">in-demand acts</span> in the Bay of Plenty. So much
                 so, they left their day jobs to perform full-time. With over{" "}
                 <span className="font-semibold text-white">200 weddings, corporate events and private parties</span>{" "}
-                under their belt, they've become the go-to covers duo in Tauranga.
+                under their belt, they&rsquo;ve become the go-to covers duo in Tauranga.
               </p>
               <p>
-                Don't let the duo format fool you -{" "}
+                Don&rsquo;t let the duo format fool you -{" "}
                 <span className="font-semibold text-orange-400">
                   Copper Skies delivers the energy of a full band
                 </span>
