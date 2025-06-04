@@ -17,11 +17,10 @@ const limiter = rateLimit({
   uniqueTokenPerInterval: 500,
 })
 
-if (!process.env.RESEND_API_KEY) {
-  throw new Error("RESEND_API_KEY is not set in environment variables")
-}
-
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Initialize Resend only if API key is available
+const resend = process.env.RESEND_API_KEY 
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null
 
 const sanitizeHtml = (str: string) => {
   return str
@@ -34,6 +33,18 @@ const sanitizeHtml = (str: string) => {
 
 export async function POST(req: Request) {
   try {
+    // Check if Resend is properly initialized
+    if (!resend) {
+      console.error("Resend API key is not configured")
+      return NextResponse.json(
+        { 
+          error: "Email service not configured. Please try again later or contact us directly at copperskiesmusic@gmail.com",
+          details: "Missing API configuration"
+        },
+        { status: 503 }
+      )
+    }
+
     // Get IP for rate limiting
     const headersList = await headers()
     const ip = headersList.get("x-forwarded-for") ?? "127.0.0.1"
