@@ -51,7 +51,7 @@ export default function Shows() {
     <section id="shows" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-900 to-gray-800">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center space-y-4 mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-[2.2rem] sm:text-[2.75rem] md:text-[3.3rem] font-bold text-white">
             Upcoming{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
               Public Shows
@@ -88,8 +88,8 @@ export default function Shows() {
                   {/* Right: Free Entry or Get Tickets */}
                   <div className="flex-shrink-0">
                     {show.isFree ? (
-                      <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 p-2 rounded-lg border border-blue-500/30">
-                        <div className="text-base sm:text-lg font-semibold text-blue-400">🎉 FREE ENTRY</div>
+                      <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 p-2 rounded-lg border border-green-500/30">
+                        <div className="text-base sm:text-lg font-semibold text-green-400">🎉 FREE ENTRY</div>
                         <div className="text-xs sm:text-sm text-gray-400">No tickets required</div>
                       </div>
                     ) : (

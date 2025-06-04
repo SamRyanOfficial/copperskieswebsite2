@@ -97,7 +97,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid gap-8 sm:gap-12 lg:grid-cols-2">
           <div className="space-y-6 sm:space-y-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center lg:text-left">
+            <h2 className="text-[2.2rem] sm:text-[2.75rem] md:text-[3.3rem] font-bold text-white text-center">
               Get in{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
                 Touch
