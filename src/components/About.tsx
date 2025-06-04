@@ -47,17 +47,17 @@ export default function About() {
               </p>
             </div>
             <div className="grid grid-cols-3 gap-4 sm:gap-6">
-              <div className="text-center p-3 sm:p-4 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg border border-green-500/30 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+              <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
                 <Award className="h-6 w-6 text-green-400 mx-auto mb-2" />
                 <div className="text-xl sm:text-2xl font-bold text-green-400">5+</div>
                 <div className="text-xs sm:text-sm text-gray-400">Years Pro</div>
               </div>
-              <div className="text-center p-3 sm:p-4 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg border border-green-500/30 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+              <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
                 <Users className="h-6 w-6 text-green-400 mx-auto mb-2" />
                 <div className="text-xl sm:text-2xl font-bold text-green-400">200+</div>
                 <div className="text-xs sm:text-sm text-gray-400">Events</div>
               </div>
-              <div className="text-center p-3 sm:p-4 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg border border-green-500/30 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+              <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
                 <Music className="h-6 w-6 text-green-400 mx-auto mb-2" />
                 <div className="text-xl sm:text-2xl font-bold text-green-400">350+</div>
                 <div className="text-xs sm:text-sm text-gray-400">Songs</div>
