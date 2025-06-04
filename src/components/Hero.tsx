@@ -7,21 +7,21 @@ import { Play, Calendar, MapPin, Music } from "lucide-react"
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[40vh] h-auto py-8 md:min-h-screen md:py-0 flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[40vh] h-auto py-8 md:min-h-screen md:py-0 flex items-end sm:items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image src="/images/copper-skies-duo.jpg" alt="Copper Skies" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/90" />
       </div>
 
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pb-4 sm:pb-0">
         <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-4 sm:mb-6 md:mb-8">
-          <div className="hidden sm:block">
+          <div>
             <Image
               src="/images/copper-skies-logo.png"
               alt="Copper Skies"
               width={600}
               height={180}
-              className="mx-auto h-16 sm:h-20 md:h-28 lg:h-40 w-auto animate-in fade-in duration-1000"
+              className="mx-auto h-14 sm:h-20 md:h-28 lg:h-40 w-auto animate-in fade-in duration-1000"
             />
           </div>
           <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-2xl mx-auto leading-relaxed px-2 animate-in fade-in duration-1000 delay-300">
