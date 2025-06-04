@@ -21,7 +21,7 @@ export default function Hero() {
               alt="Copper Skies"
               width={600}
               height={180}
-              className="mx-auto h-24 sm:h-24 md:h-32 lg:h-40 w-auto animate-in fade-in duration-1000"
+              className="mx-auto h-auto w-[280px] sm:w-[320px] md:w-[400px] lg:w-[500px] animate-in fade-in duration-1000"
             />
           </div>
           <p className="text-xs sm:text-base md:text-xl lg:text-2xl text-gray-200 max-w-2xl mx-auto leading-relaxed px-2 animate-in fade-in duration-1000 delay-300">
