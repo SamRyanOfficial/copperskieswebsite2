@@ -20,8 +20,7 @@ export default function About() {
             </div>
             <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 p-4 rounded-lg border-l-4 border-orange-500">
               <p className="text-base sm:text-lg md:text-xl font-medium text-orange-400 text-center lg:text-left">
-                &ldquo;Reading the room. Switching gears when it counts. Bringing your guests into the action. That&rsquo;s
-                what we do - and that&rsquo;s why they&rsquo;ll remember your event long after the music stops.&rdquo;
+                &ldquo;Planning an event can be stressful - but the music doesn&rsquo;t have to be. We bring the fun, read the room, and keep the energy exactly where it needs to be.&rdquo;
               </p>
             </div>
             <div className="space-y-4 text-base sm:text-lg text-gray-300">
