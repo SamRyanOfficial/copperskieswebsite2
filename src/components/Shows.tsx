@@ -73,14 +73,14 @@ export default function Shows() {
                 <div className="flex items-center justify-between w-full min-h-[80px]">
                   {/* Left: Date */}
                   <div className="flex-shrink-0 text-left">
-                    <div className="text-xl sm:text-2xl font-bold text-orange-400">{show.date}</div>
-                    <div className="text-sm text-gray-400">{show.year}</div>
+                    <div className="text-base sm:text-2xl font-bold text-orange-400">{show.date}</div>
+                    <div className="text-xs sm:text-sm text-gray-400">{show.year}</div>
                   </div>
 
                   {/* Center: Venue and Location */}
                   <div className="flex-1 text-center px-4">
-                    <div className="text-lg sm:text-xl font-semibold text-white">{show.venue}</div>
-                    <div className="text-sm sm:text-base text-gray-300">
+                    <div className="text-base sm:text-xl font-semibold text-white">{show.venue}</div>
+                    <div className="text-xs sm:text-base text-gray-300">
                       {show.location} • {show.time}
                     </div>
                   </div>
@@ -89,8 +89,8 @@ export default function Shows() {
                   <div className="flex-shrink-0">
                     {show.isFree ? (
                       <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 p-2 rounded-lg border border-green-500/30">
-                        <div className="text-base sm:text-lg font-semibold text-green-400">🎉 FREE ENTRY</div>
-                        <div className="text-xs sm:text-sm text-gray-400">No tickets required</div>
+                        <div className="text-sm sm:text-lg font-semibold text-green-400">🎉 FREE ENTRY</div>
+                        <div className="text-[10px] sm:text-sm text-gray-400">No tickets required</div>
                       </div>
                     ) : (
                       show.ticketLink && (
