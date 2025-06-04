@@ -88,8 +88,8 @@ export default function Shows() {
                   {/* Right: Free Entry or Get Tickets */}
                   <div className="flex-shrink-0">
                     {show.isFree ? (
-                      <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 p-2 rounded-lg border border-green-500/30">
-                        <div className="text-base sm:text-lg font-semibold text-green-400">🎉 FREE ENTRY</div>
+                      <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 p-2 rounded-lg border border-blue-500/30">
+                        <div className="text-base sm:text-lg font-semibold text-blue-400">🎉 FREE ENTRY</div>
                         <div className="text-xs sm:text-sm text-gray-400">No tickets required</div>
                       </div>
                     ) : (
