@@ -1,6 +1,6 @@
 {
-  "name": "copperskieswebsite",
-  "version": "0.1.0",
+  "name": "copperskieswebsite2",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
