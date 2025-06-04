@@ -61,10 +61,13 @@ export async function POST(req: Request) {
 
     // Parse and validate input
     const body = await req.json()
+    console.log("Received form data:", body) // Log received data
+
     const result = contactSchema.safeParse(body)
 
     if (!result.success) {
       const errorMessages = result.error.errors.map(err => `${err.path}: ${err.message}`).join(", ")
+      console.error("Validation error:", errorMessages) // Log validation errors
       return NextResponse.json(
         { error: "Invalid input", details: errorMessages },
         { status: 400 }
@@ -79,8 +82,9 @@ export async function POST(req: Request) {
     const sanitizedSubject = sanitizeHtml(subject)
     const sanitizedMessage = sanitizeHtml(message)
 
+    console.log("Attempting to send email with Resend...") // Log before sending
     const { error } = await resend.emails.send({
-      from: "Contact Form <contact@copperskies.co.nz>",
+      from: "Copper Skies <onboarding@resend.dev>", // Using Resend's default sender temporarily
       to: ["copperskiesmusic@gmail.com"],
       replyTo: sanitizedEmail,
       subject: `New Contact Form Submission: ${sanitizedSubject}`,
@@ -96,7 +100,11 @@ export async function POST(req: Request) {
     })
 
     if (error) {
-      console.error("Failed to send email:", error)
+      console.error("Resend API Error:", {
+        message: error.message,
+        name: error.name,
+        details: error
+      }) // Log detailed error information
       
       // Handle domain verification error specifically
       if (error.message?.toLowerCase().includes("domain is not verified")) {
@@ -110,7 +118,10 @@ export async function POST(req: Request) {
       }
 
       return NextResponse.json(
-        { error: "Failed to send email. Please try again later." },
+        { 
+          error: "Failed to send email. Please try again later.",
+          details: error.message // Include error message in response
+        },
         { 
           status: 500,
           headers: {
@@ -123,6 +134,7 @@ export async function POST(req: Request) {
       )
     }
 
+    console.log("Email sent successfully") // Log success
     return NextResponse.json(
       { message: "Email sent successfully" },
       { 
@@ -136,9 +148,12 @@ export async function POST(req: Request) {
       }
     )
   } catch (error) {
-    console.error("Error sending email:", error)
+    console.error("Unexpected error:", error) // Log unexpected errors
     return NextResponse.json(
-      { error: "An unexpected error occurred. Please try again later." },
+      { 
+        error: "An unexpected error occurred. Please try again later.",
+        details: error instanceof Error ? error.message : "Unknown error"
+      },
       { 
         status: 500,
         headers: {
