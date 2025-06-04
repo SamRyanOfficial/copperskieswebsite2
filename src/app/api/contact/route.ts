@@ -95,7 +95,7 @@ export async function POST(req: Request) {
 
     console.log("Attempting to send email with Resend...")
     const { error } = await resend.emails.send({
-      from: "Copper Skies <onboarding@resend.dev>", // Using Resend's default sender temporarily
+      from: "Copper Skies <contact@copperskies.co.nz>",
       to: ["copperskiesmusic@gmail.com"],
       replyTo: sanitizedEmail,
       subject: `New Contact Form Submission: ${sanitizedSubject}`,
