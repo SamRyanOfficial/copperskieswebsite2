@@ -7,7 +7,7 @@ import { Play, Calendar, MapPin, Music } from "lucide-react"
 
 export default function Hero() {
   return (
-    <section className="relative h-auto py-8 md:min-h-screen md:py-0 flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[80vh] h-auto py-8 md:min-h-screen md:py-0 flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image src="/images/copper-skies-duo.jpg" alt="Copper Skies" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80" />
