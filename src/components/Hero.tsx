@@ -20,7 +20,7 @@ export default function Hero() {
             alt="Copper Skies"
             width={600}
             height={180}
-            className="mx-auto h-16 sm:h-20 md:h-28 lg:h-40 w-auto animate-in fade-in duration-1000"
+            className="hidden sm:block mx-auto h-16 sm:h-20 md:h-28 lg:h-40 w-auto animate-in fade-in duration-1000"
           />
           <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-2xl mx-auto leading-relaxed px-2 animate-in fade-in duration-1000 delay-300">
             <span className="font-semibold text-orange-400">Acoustic duo</span>, but with the{" "}
