@@ -15,13 +15,13 @@ export default function Hero() {
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pb-4 sm:pb-0">
         <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-4 sm:mb-6 md:mb-8">
-          <div>
+          <div className="relative">
             <Image
               src="/images/copper-skies-logo.png"
               alt="Copper Skies"
               width={600}
               height={180}
-              className="mx-auto h-auto w-[280px] sm:w-[320px] md:w-[400px] lg:w-[750px] animate-in fade-in duration-1000 [filter:drop-shadow(-0.3px_-0.3px_0px_rgba(0,0,0,0.85))_drop-shadow(0.3px_0.3px_0px_rgba(0,0,0,0.85))_drop-shadow(0.3px_-0.3px_0px_rgba(0,0,0,0.85))_drop-shadow(-0.3px_0.3px_0px_rgba(0,0,0,0.85))]"
+              className="mx-auto h-auto w-[280px] sm:w-[320px] md:w-[400px] lg:w-[750px] animate-in fade-in duration-1000 outline-black [filter:drop-shadow(0_0_1px_rgba(0,0,0,0.7))]"
             />
           </div>
           <p className="text-xs sm:text-base md:text-xl lg:text-2xl text-gray-200 max-w-2xl mx-auto leading-relaxed px-2 animate-in fade-in duration-1000 delay-300">
