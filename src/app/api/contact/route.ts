@@ -68,7 +68,7 @@ export async function POST(req: Request) {
     const sanitizedSubject = sanitizeHtml(subject)
     const sanitizedMessage = sanitizeHtml(message)
 
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Contact Form <contact@copperskies.co.nz>",
       to: ["copperskiesmusic@gmail.com"],
       replyTo: sanitizedEmail,

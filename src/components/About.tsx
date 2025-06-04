@@ -21,8 +21,8 @@ export default function About() {
             <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
               <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 p-4 rounded-lg border-l-4 border-orange-500">
                 <p className="text-lg sm:text-xl font-medium text-orange-400 text-center lg:text-left">
-                  "Reading the room. Switching gears when it counts. Bringing your guests into the action. That's
-                  what we do - and that's why they'll remember your event long after the music stops."
+                  &ldquo;Reading the room. Switching gears when it counts. Bringing your guests into the action. That&rsquo;s
+                  what we do - and that&rsquo;s why they&rsquo;ll remember your event long after the music stops.&rdquo;
                 </p>
               </div>
               <p>

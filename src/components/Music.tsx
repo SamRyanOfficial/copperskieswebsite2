@@ -15,8 +15,8 @@ export default function Music() {
             </span>
           </h2>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-2">
-            Watch us perform and see why we're{" "}
-            <span className="font-semibold text-orange-400">Bay of Plenty's most sought-after duo</span>
+            Watch us perform and see why we&rsquo;re{" "}
+            <span className="font-semibold text-orange-400">Bay of Plenty&rsquo;s most sought-after duo</span>
           </p>
         </div>
 
