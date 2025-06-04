@@ -28,9 +28,9 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4 animate-in fade-in duration-1000 delay-500">
+        <div className="flex flex-row items-center justify-center space-x-3 sm:space-x-4 animate-in fade-in duration-1000 delay-500">
           <Button
-            className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 w-44 sm:w-auto"
+            className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 w-36 sm:w-auto"
             asChild
           >
             <Link href="#music">
@@ -40,7 +40,7 @@ export default function Hero() {
           </Button>
           <Button
             variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-black bg-transparent px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base hover:scale-105 transition-all duration-200 shadow-lg w-44 sm:w-auto"
+            className="border-2 border-white text-white hover:bg-white hover:text-black bg-transparent px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base hover:scale-105 transition-all duration-200 shadow-lg w-36 sm:w-auto"
             asChild
           >
             <Link href="#contact">
