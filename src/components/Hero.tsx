@@ -13,8 +13,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80" />
       </div>
 
-      <div className="relative z-10 text-center space-y-3 sm:space-y-4 md:space-y-8 px-4 max-w-4xl mx-auto">
-        <div className="space-y-2 sm:space-y-3 md:space-y-4">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-4 sm:mb-6 md:mb-8">
           <Image
             src="/images/copper-skies-logo.png"
             alt="Copper Skies"
@@ -28,7 +28,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="flex flex-row items-center justify-center space-x-3 sm:space-x-4 animate-in fade-in duration-1000 delay-500">
+        <div className="flex flex-row items-center justify-center space-x-3 sm:space-x-4 mb-4 sm:mb-6 md:mb-8 animate-in fade-in duration-1000 delay-500">
           <Button
             className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 w-36 sm:w-auto"
             asChild
