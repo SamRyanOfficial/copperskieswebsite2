@@ -1,0 +1,142 @@
+import { NextResponse } from "next/server"
+import { Resend } from "resend"
+import { headers } from "next/headers"
+import { z } from "zod"
+import { rateLimit } from "@/lib/rate-limit"
+
+// Input validation schema
+const contactSchema = z.object({
+  name: z.string().min(2).max(100),
+  email: z.string().email(),
+  subject: z.string().min(2).max(200),
+  message: z.string().min(10).max(5000),
+})
+
+const limiter = rateLimit({
+  interval: 60 * 1000, // 1 minute
+  uniqueTokenPerInterval: 500,
+})
+
+if (!process.env.RESEND_API_KEY) {
+  throw new Error("RESEND_API_KEY is not set in environment variables")
+}
+
+const resend = new Resend(process.env.RESEND_API_KEY)
+
+const sanitizeHtml = (str: string) => {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;")
+}
+
+export async function POST(req: Request) {
+  try {
+    // Get IP for rate limiting
+    const headersList = await headers()
+    const ip = headersList.get("x-forwarded-for") ?? "127.0.0.1"
+
+    // Apply rate limiting
+    try {
+      await limiter.check(5, ip) // 5 requests per minute per IP
+    } catch {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again later." },
+        { status: 429 }
+      )
+    }
+
+    // Parse and validate input
+    const body = await req.json()
+    const result = contactSchema.safeParse(body)
+
+    if (!result.success) {
+      const errorMessages = result.error.errors.map(err => `${err.path}: ${err.message}`).join(", ")
+      return NextResponse.json(
+        { error: "Invalid input", details: errorMessages },
+        { status: 400 }
+      )
+    }
+
+    const { name, email, subject, message } = result.data
+
+    // Sanitize input for email template
+    const sanitizedName = sanitizeHtml(name)
+    const sanitizedEmail = sanitizeHtml(email)
+    const sanitizedSubject = sanitizeHtml(subject)
+    const sanitizedMessage = sanitizeHtml(message)
+
+    const { data, error } = await resend.emails.send({
+      from: "Contact Form <contact@copperskies.co.nz>",
+      to: ["copperskiesmusic@gmail.com"],
+      replyTo: sanitizedEmail,
+      subject: `New Contact Form Submission: ${sanitizedSubject}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${sanitizedName}</p>
+        <p><strong>Email:</strong> ${sanitizedEmail}</p>
+        <p><strong>Subject:</strong> ${sanitizedSubject}</p>
+        <br/>
+        <p><strong>Message:</strong></p>
+        <p>${sanitizedMessage.replace(/\n/g, "<br/>")}</p>
+      `,
+    })
+
+    if (error) {
+      console.error("Failed to send email:", error)
+      
+      // Handle domain verification error specifically
+      if (error.message?.toLowerCase().includes("domain is not verified")) {
+        return NextResponse.json(
+          { 
+            error: "Email service not fully configured. Please try again later or contact us directly at copperskiesmusic@gmail.com",
+            details: "Domain verification pending"
+          },
+          { status: 503 }
+        )
+      }
+
+      return NextResponse.json(
+        { error: "Failed to send email. Please try again later." },
+        { 
+          status: 500,
+          headers: {
+            "Content-Security-Policy": "default-src 'self'",
+            "X-Content-Type-Options": "nosniff",
+            "X-Frame-Options": "DENY",
+            "Referrer-Policy": "no-referrer"
+          }
+        }
+      )
+    }
+
+    return NextResponse.json(
+      { message: "Email sent successfully" },
+      { 
+        status: 200,
+        headers: {
+          "Content-Security-Policy": "default-src 'self'",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+          "Referrer-Policy": "no-referrer"
+        }
+      }
+    )
+  } catch (error) {
+    console.error("Error sending email:", error)
+    return NextResponse.json(
+      { error: "An unexpected error occurred. Please try again later." },
+      { 
+        status: 500,
+        headers: {
+          "Content-Security-Policy": "default-src 'self'",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+          "Referrer-Policy": "no-referrer"
+        }
+      }
+    )
+  }
+} 
