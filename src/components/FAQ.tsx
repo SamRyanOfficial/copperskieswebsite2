@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     question: "What kind of music do you play?",
-    answer: "We cover a wide mix of rock, country, pop, blues, folk, and a touch of Irish. Think crowd favourites, modern hits, throwbacks, and unexpected gems — all with our own spin and signature harmonies. We tailor every set to your event, whether that's mellow and acoustic or high-energy and dance-floor ready. We also offer DJ-style Spotify sets to keep the vibe going during breaks or late into the night."
+    answer: "We cover a wide mix of rock, country, pop, blues, folk, and a touch of Irish. Think crowd favourites, modern hits, throwbacks, and unexpected gems — all with our own spin and signature harmonies. We tailor every set to your event, whether that's mellow and acoustic or high-energy and dance-floor ready."
   },
   {
     question: "How do you handle wedding ceremony music?",
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "Why book Copper Skies for corporate events?",
-    answer: "We know how to keep things professional and fun. With years of experience and a huge repertoire, we adjust to suit your vibe — whether you want smooth background music during networking or a high-energy set to close the night. We can even provide Spotify background playlists in between sets to keep the momentum flowing."
+    answer: "We know how to keep things professional and fun. With years of experience and a huge repertoire, we adjust to suit your vibe — whether you want smooth background music during networking or a high-energy set to close the night."
   }
 ];
 
