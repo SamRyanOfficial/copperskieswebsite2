@@ -1,11 +1,18 @@
 "use client"
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, MapPin, Calendar } from 'lucide-react';
+import { ChevronDown, ChevronUp, MapPin, Calendar, Music, PartyPopper, Briefcase } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Review, reviews } from '@/data/reviews';
 
 const INITIAL_DISPLAY_COUNT = 6;
+
+const getEventIcon = (eventType: string) => {
+  const type = eventType.toLowerCase();
+  if (type.includes('wedding')) return <Music className="w-4 h-4 text-orange-400" />;
+  if (type.includes('corporate')) return <Briefcase className="w-4 h-4 text-orange-400" />;
+  return <PartyPopper className="w-4 h-4 text-orange-400" />;
+};
 
 const ReviewCard = ({ review }: { review: Review }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -62,14 +69,17 @@ const ReviewCard = ({ review }: { review: Review }) => {
       <div className="mt-6 pt-6 border-t border-gray-800/50">
         <div className="flex flex-col gap-2 text-sm text-gray-400">
           <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-orange-400" />
+            {getEventIcon(review.event)}
             <span>{review.event}</span>
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-orange-400" />
             <span>{review.venue}</span>
           </div>
-          <p className="font-medium">{review.date}</p>
+          <div className="flex items-center gap-2">
+            <Calendar className="w-4 h-4 text-orange-400" />
+            <span>{review.date}</span>
+          </div>
         </div>
       </div>
     </div>
