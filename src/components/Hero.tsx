@@ -16,8 +16,8 @@ export default function Hero() {
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pb-4 sm:pb-0">
         <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-4 sm:mb-6 md:mb-8">
           <div className="relative">
-            <div className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-xl"></div>
-            <div className="relative p-2">
+            <div className="absolute inset-0 bg-black/30 rounded-xl backdrop-blur-[2px]"></div>
+            <div className="relative p-4">
               <Image
                 src="/images/copper-skies-logo.png"
                 alt="Copper Skies"
@@ -25,7 +25,7 @@ export default function Hero() {
                 height={180}
                 className="mx-auto h-auto w-[280px] sm:w-[320px] md:w-[400px] lg:w-[750px] animate-in fade-in duration-1000"
                 style={{
-                  filter: 'drop-shadow(1px 1px 0px rgba(0,0,0,0.8)) drop-shadow(-1px -1px 0px rgba(0,0,0,0.8))'
+                  filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.9))'
                 }}
               />
             </div>
