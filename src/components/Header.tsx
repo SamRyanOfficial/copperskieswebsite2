@@ -140,35 +140,35 @@ export default function Header() {
           <nav className="flex flex-col space-y-4 px-4 py-6">
             <Link
               href="#about"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link
               href="#music"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Music
             </Link>
             <Link
               href="#shows"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Shows
             </Link>
             <Link
               href="#gallery"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Gallery
             </Link>
             <Link
               href="#contact"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
@@ -176,7 +176,7 @@ export default function Header() {
 
             {/* Mobile Book Us Button */}
             <Button
-              className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white mt-4 py-3"
+              className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white mt-4 py-3 w-full"
               asChild
               onClick={() => setIsMobileMenuOpen(false)}
             >
