@@ -23,7 +23,8 @@ export default function Hero() {
               height={180}
               className="mx-auto h-auto w-[280px] sm:w-[320px] md:w-[400px] lg:w-[750px] animate-in fade-in duration-1000"
               style={{
-                filter: 'drop-shadow(0.5px 0px 0px rgba(0,0,0,0.85)) drop-shadow(-0.5px 0px 0px rgba(0,0,0,0.85)) drop-shadow(0px 0.5px 0px rgba(0,0,0,0.85)) drop-shadow(0px -0.5px 0px rgba(0,0,0,0.85))'
+                filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.8)) drop-shadow(2px 2px 2px rgba(0,0,0,0.7)) drop-shadow(-2px -2px 2px rgba(0,0,0,0.7))',
+                WebkitFilter: 'drop-shadow(0 0 2px rgba(0,0,0,0.8)) drop-shadow(2px 2px 2px rgba(0,0,0,0.7)) drop-shadow(-2px -2px 2px rgba(0,0,0,0.7))'
               }}
             />
           </div>
