@@ -51,6 +51,18 @@ export default function Header() {
               Gallery
             </Link>
             <Link
+              href="#reviews"
+              className="text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-200 hover:scale-105"
+            >
+              Reviews
+            </Link>
+            <Link
+              href="#faq"
+              className="text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-200 hover:scale-105"
+            >
+              FAQ
+            </Link>
+            <Link
               href="#contact"
               className="text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-200 hover:scale-105"
             >
@@ -165,6 +177,20 @@ export default function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Gallery
+            </Link>
+            <Link
+              href="#reviews"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Reviews
+            </Link>
+            <Link
+              href="#faq"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              FAQ
             </Link>
             <Link
               href="#contact"
