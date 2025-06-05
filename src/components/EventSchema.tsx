@@ -1,7 +1,3 @@
-"use client"
-
-import { useEffect, useState } from "react"
-
 // Import the shows data
 const shows = [
   {
@@ -39,13 +35,8 @@ const shows = [
 ]
 
 export default function EventSchema() {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return null
+  // Use a static date to avoid hydration mismatches
+  const validFromDate = "2024-01-01T00:00:00.000Z"
 
   const eventSchemaData = {
     "@context": "https://schema.org",
@@ -78,7 +69,7 @@ export default function EventSchema() {
           "price": "0",
           "priceCurrency": "NZD",
           "availability": "https://schema.org/InStock",
-          "validFrom": new Date().toISOString()
+          "validFrom": validFromDate
         }
       }
     })
