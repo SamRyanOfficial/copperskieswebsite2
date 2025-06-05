@@ -28,7 +28,7 @@ export default function About() {
                 Sam and James are one of the most{" "}
                 <span className="font-semibold text-orange-400">in-demand acts</span> in the Bay of Plenty. So much
                 so, they left their day jobs to perform full-time. With over{" "}
-                <span className="font-semibold text-white">200 weddings, corporate events and private parties</span>{" "}
+                <span className="font-semibold text-white">200 weddings and corporate events</span>{" "}
                 under their belt, they&rsquo;ve become the go-to covers duo in Tauranga.
               </p>
               <p>
