@@ -97,7 +97,7 @@ export async function POST(req: Request) {
     const { error } = await resend.emails.send({
       from: "Copper Skies <contact@copperskies.co.nz>",
       to: ["copperskiesmusic@gmail.com"],
-      replyTo: sanitizedEmail,
+      reply_to: sanitizedEmail,
       subject: `New Contact Form Submission: ${sanitizedSubject}`,
       html: `
         <h2>New Contact Form Submission</h2>

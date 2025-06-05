@@ -8,6 +8,9 @@ import Shows from "@/components/Shows"
 import Gallery from "@/components/Gallery"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
+import Image from "next/image"
+import FAQ from "@/components/FAQ"
+import Testimonials from "@/components/Testimonials"
 
 export default function CopperSkiesLanding() {
   return (
@@ -20,6 +23,8 @@ export default function CopperSkiesLanding() {
         <Shows />
         <Gallery />
         <Contact />
+        <Testimonials />
+        <FAQ />
       </main>
       <Footer />
     </div>

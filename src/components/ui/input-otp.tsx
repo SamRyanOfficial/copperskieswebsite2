@@ -1,22 +1,34 @@
 "use client"
 
 import * as React from "react"
-import { OTPInput, OTPInputContext } from "input-otp"
+import { OTPInput } from "input-otp"
 import { Dot } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+interface InputOTPProps extends Omit<React.ComponentPropsWithoutRef<typeof OTPInput>, "render"> {
+  maxLength: number
+}
+
 const InputOTP = React.forwardRef<
   React.ElementRef<typeof OTPInput>,
-  React.ComponentPropsWithoutRef<typeof OTPInput>
->(({ className, containerClassName, ...props }, ref) => (
+  InputOTPProps
+>(({ className, containerClassName, maxLength, ...props }, ref) => (
   <OTPInput
     ref={ref}
+    maxLength={maxLength}
     containerClassName={cn(
-      "flex items-center gap-2 has-[:disabled]:opacity-50",
+      "group flex items-center has-[:disabled]:opacity-50",
       containerClassName
     )}
     className={cn("disabled:cursor-not-allowed", className)}
+    render={({ slots }) => (
+      <InputOTPGroup>
+        {slots.map((slot, idx) => (
+          <InputOTPSlot key={idx} {...slot} />
+        ))}
+      </InputOTPGroup>
+    )}
     {...props}
   />
 ))
@@ -30,18 +42,23 @@ const InputOTPGroup = React.forwardRef<
 ))
 InputOTPGroup.displayName = "InputOTPGroup"
 
+interface InputOTPSlotProps extends React.ComponentPropsWithoutRef<"div"> {
+  char: string | null
+  hasFakeCaret: boolean
+  isActive: boolean
+}
+
 const InputOTPSlot = React.forwardRef<
   React.ElementRef<"div">,
-  React.ComponentPropsWithoutRef<"div"> & { index: number }
->(({ index, className, ...props }, ref) => {
-  const inputOTPContext = React.useContext(OTPInputContext)
-  const { char, hasFakeCaret, isActive } = inputOTPContext.slots[index]
-
+  InputOTPSlotProps
+>(({ className, char, hasFakeCaret, isActive, ...props }, ref) => {
   return (
     <div
       ref={ref}
       className={cn(
         "relative flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md",
+        "group-focus-within:border-primary",
+        "group-hover:border-primary",
         isActive && "z-10 ring-2 ring-ring ring-offset-background",
         className
       )}
