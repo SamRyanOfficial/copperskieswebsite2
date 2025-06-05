@@ -2,24 +2,35 @@
 
 import { useEffect, useState } from "react"
 
+const MOBILE_BREAKPOINT = 768
+
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false)
+  // Initialize with null to indicate "not determined yet"
+  const [isMobile, setIsMobile] = useState<boolean | null>(null)
 
   useEffect(() => {
     // Function to check if window width is mobile
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768) // 768px is typical tablet/mobile breakpoint
+      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     }
 
     // Check on mount
     checkMobile()
 
-    // Add resize listener
+    // Use both matchMedia and resize listener for better reliability
+    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
+    mql.addEventListener("change", checkMobile)
+
+    // Also keep the resize listener as a fallback
     window.addEventListener("resize", checkMobile)
 
     // Cleanup
-    return () => window.removeEventListener("resize", checkMobile)
+    return () => {
+      mql.removeEventListener("change", checkMobile)
+      window.removeEventListener("resize", checkMobile)
+    }
   }, [])
 
-  return isMobile
+  // Return false during SSR or if not determined yet
+  return isMobile ?? false
 } 
