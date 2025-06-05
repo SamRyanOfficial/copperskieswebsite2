@@ -15,7 +15,11 @@ const faqs = [
   },
   {
     question: "How do you handle wedding ceremony music?",
-    answer: "Ceremony music is something we take seriously — and personally. We'll work with you to choose the perfect songs for walking down the aisle, signing the register, and making your grand exit. We perform these moments live, acoustically, with care and heart. Want music throughout the day and into the evening? We can add a Spotify set for your cocktail hour or late-night dancing, too."
+    answer: "Ceremony music is something we take seriously. We'll work with you to choose the perfect songs for walking down the aisle, signing the register, and making your grand exit. We can perform these moments live, or we can use Spotify through our equipment if you want a specific version of a song played at just the right moment."
+  },
+  {
+    question: "Can you play a full-day wedding?",
+    answer: "Yes, absolutely. We often provide live music for the entire day — from the ceremony, to the afternoon canapés and cocktail hour, through to a full three-hour dance floor set at the reception. We can take care of it all and keep the vibe flowing from start to finish."
   },
   {
     question: "Where do you perform?",
