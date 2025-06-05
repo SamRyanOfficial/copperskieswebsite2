@@ -51,17 +51,22 @@ const FAQ = () => {
   const faqs = faqData.mainEntity;
 
   return (
-    <section className="py-16 bg-black/95">
+    <section className="py-16 bg-gradient-to-b from-black via-black/95 to-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">Frequently Asked Questions</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">Frequently Asked Questions</h2>
         <div className="max-w-3xl mx-auto space-y-6">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-black/80 backdrop-blur-sm border border-gray-800 rounded-lg p-6 hover:bg-black/90 transition-colors duration-200"
+              className="bg-gradient-to-r from-gray-900/80 to-black/80 backdrop-blur-sm border border-gray-800/50 rounded-lg p-8 hover:from-gray-900/90 hover:to-black/90 transition-all duration-300 shadow-xl"
             >
-              <h3 className="text-xl font-semibold mb-4 text-orange-400">{faq.name}</h3>
-              <p className="text-gray-300 leading-relaxed">{faq.acceptedAnswer.text}</p>
+              <h3 className="text-xl font-semibold mb-4 text-orange-400 flex items-center">
+                <span className="text-orange-500 mr-2">Q:</span>
+                {faq.name}
+              </h3>
+              <p className="text-gray-200 leading-relaxed pl-6">
+                {faq.acceptedAnswer.text}
+              </p>
             </div>
           ))}
         </div>
