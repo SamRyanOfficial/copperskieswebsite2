@@ -8,13 +8,14 @@ export interface Review {
 }
 
 export const reviews: Review[] = [
+  // First 6 reviews - diverse locations with Bay of Plenty focus
   {
-    id: 1,
-    text: "I'd like to say that Sam and James exceeded our expectations. They were absolutely amazing and had all the guests on their feet for the entire evening.",
-    author: "Tracy Sexton",
-    event: "Joint 50th Birthday",
-    venue: "Lake Taupo Yacht Club",
-    date: "18/11/2023"
+    id: 11,
+    text: "We had Sam and James and they were absolutely UNREAL! They really were one of the highlights of our wedding day and everyone has been raving about them since saying WOW your band! Who are they, we want them for our event! (very much looking forward to that). They bought the vibes, read the room and played awesome tunes and even took requests on the night from guests. Jake and I feel so stoked about how lucky we were to have such an incredible band play at our wedding! The dance floor was non-stop packed and going off for 3 hours straight. Everyone has been asking for their names since our wedding day. Hands down, best wedding band ever. Such cool guys and easy to communicate with. They really want the guests and bride/groom to have the time of their lives. They even let me sing my fav song, Man I feel Like a Woman up on stage.. Looking forward to listening to them again when they play at bars around Tauranga.",
+    author: "Jess & Jacob",
+    event: "Tauranga Wedding",
+    venue: "L'Orangerie",
+    date: "2/2/2024"
   },
   {
     id: 2,
@@ -23,6 +24,47 @@ export const reviews: Review[] = [
     event: "Waiheke Wedding",
     venue: "Mudbrick Vineyard Estate",
     date: "12/4/2024"
+  },
+  {
+    id: 17,
+    text: "Sam & James played for us at a wrap-party for a staff conference. They were fantastic and understood the energy required throughout the evening. They were great to deal with and even let one of our staff members steal a mic, and the spotlight for a song! Highly recommend, fantastic voices and incredible musicians.",
+    author: "Olivia Dobbs",
+    event: "Tauranga Corporate",
+    venue: "Top10 Holiday Parks",
+    date: "4/3/2023"
+  },
+  {
+    id: 6,
+    text: "My twin sister and I had our 50th birthday celebrations in Taupo. Sam and James were truly legendary, they read the crowd perfectly and had everyone up and dancing the entire night. They brought so much fun and energy to their performance we'll definitely use them again in the future. It was such a fantastic evening and that's all down to Sam and James and their ability to engage with the audience. We would highly recommend them to anyone looking for memorable entertainment 😃😃😃",
+    author: "Tracy & Tara",
+    event: "Taupo 50th Birthday",
+    venue: "Lake Taupo Yacht Club",
+    date: "18/11/2023"
+  },
+  {
+    id: 19,
+    text: "You will not find better than Sam and James! These guys are seriously outstanding and had our dance floor cranking the whole night. Amazingly talented and seemed to enjoy themselves as much as we did. We had so many comments after the wedding about the band and we cannot recommend Sam and James enough. Thank you thank you thank you!",
+    author: "Emma Langman",
+    event: "Bay of Plenty Wedding",
+    venue: "Omahanui Venue",
+    date: "31/3/2023"
+  },
+  {
+    id: 15,
+    text: "Sam and James were absolutely incredible at our wedding. They nailed our entrance songs, Kept the dancefloor going all night, were so funny and created the best atmosphere! Couldn't recommend them enough!",
+    author: "Olivia Hopkins",
+    event: "Coromandel Wedding",
+    venue: "Stone Terrace Guest House",
+    date: "4/3/2023"
+  },
+  // Rest of the reviews
+  {
+    id: 1,
+    text: "I'd like to say that Sam and James exceeded our expectations. They were absolutely amazing and had all the guests on their feet for the entire evening.",
+    author: "Tracy Sexton",
+    event: "Joint 50th Birthday",
+    venue: "Lake Taupo Yacht Club",
+    date: "18/11/2023"
   },
   {
     id: 3,
@@ -47,14 +89,6 @@ export const reviews: Review[] = [
     event: "Rotorua Wedding",
     venue: "The Black Barn",
     date: "12/4/2025"
-  },
-  {
-    id: 6,
-    text: "My twin sister and I had our 50th birthday celebrations in Taupo. Sam and James were truly legendary, they read the crowd perfectly and had everyone up and dancing the entire night. They brought so much fun and energy to their performance we'll definitely use them again in the future. It was such a fantastic evening and that's all down to Sam and James and their ability to engage with the audience. We would highly recommend them to anyone looking for memorable entertainment 😃😃😃",
-    author: "Tracy & Tara",
-    event: "Taupo 50th Birthday",
-    venue: "Lake Taupo Yacht Club",
-    date: "18/11/2023"
   },
   {
     id: 7,
@@ -89,14 +123,6 @@ export const reviews: Review[] = [
     date: "17/2/2024"
   },
   {
-    id: 11,
-    text: "We had Sam and James and they were absolutely UNREAL! They really were one of the highlights of our wedding day and everyone has been raving about them since saying WOW your band! Who are they, we want them for our event! (very much looking forward to that). They bought the vibes, read the room and played awesome tunes and even took requests on the night from guests. Jake and I feel so stoked about how lucky we were to have such an incredible band play at our wedding! The dance floor was non-stop packed and going off for 3 hours straight. Everyone has been asking for their names since our wedding day. Hands down, best wedding band ever. Such cool guys and easy to communicate with. They really want the guests and bride/groom to have the time of their lives. They even let me sing my fav song, Man I feel Like a Woman up on stage.. Looking forward to listening to them again when they play at bars around Tauranga.",
-    author: "Jess & Jacob",
-    event: "Tauranga Wedding",
-    venue: "L'Orangerie",
-    date: "2/2/2024"
-  },
-  {
     id: 12,
     text: "We were SO pleased that our original band fell through and we ended up with Sam & James. Sam was so professional and very easy to communicate with. You know it's a great wedding when people come away with sore feet from dancing the whole night. We were so so so happy with the vibe they created and their talent is incredible. I'm gutted we were away for photos and couldn't enjoy the acoustic music during canapés as it sounded so good! So many compliments from everyone who attended. Would highly recommend them to everyone.",
     author: "Alice Chapman",
@@ -121,14 +147,6 @@ export const reviews: Review[] = [
     date: "10/12/2022"
   },
   {
-    id: 15,
-    text: "Sam and James were absolutely incredible at our wedding. They nailed our entrance songs, Kept the dancefloor going all night, were so funny and created the best atmosphere! Couldn't recommend them enough!",
-    author: "Olivia Hopkins",
-    event: "Coromandel Wedding",
-    venue: "Stone Terrace Guest House",
-    date: "4/3/2023"
-  },
-  {
     id: 16,
     text: "We had the pleasure of meeting Sam and James at a wedding recently, as a wedding vender we get to see loads of bands and can honestly say they are the best we have ever seen. From the start to the finish and a bonus they are just the nicest people. If we ever have a big event we will be trying to book these guys.",
     author: "Karen Curtis",
@@ -137,27 +155,11 @@ export const reviews: Review[] = [
     date: "Not Specified"
   },
   {
-    id: 17,
-    text: "Sam & James played for us at a wrap-party for a staff conference. They were fantastic and understood the energy required throughout the evening. They were great to deal with and even let one of our staff members steal a mic, and the spotlight for a song! Highly recommend, fantastic voices and incredible musicians.",
-    author: "Olivia Dobbs",
-    event: "Tauranga Corporate",
-    venue: "Top10 Holiday Parks",
-    date: "4/3/2023"
-  },
-  {
     id: 18,
     text: "We had Sam & James for our Coromandel wedding and they were just INCREDIBLE! They keep everyone dancing for 3 hrs and more. We are extremely happy with all the service delivered by better band.",
     author: "Tamy Rosansky",
     event: "Coromandel Wedding",
     venue: "Star & Garter Hotel",
     date: "11/3/2023"
-  },
-  {
-    id: 19,
-    text: "You will not find better than Sam and James! These guys are seriously outstanding and had our dance floor cranking the whole night. Amazingly talented and seemed to enjoy themselves as much as we did. We had so many comments after the wedding about the band and we cannot recommend Sam and James enough. Thank you thank you thank you!",
-    author: "Emma Langman",
-    event: "Bay of Plenty Wedding",
-    venue: "Omahanui Venue",
-    date: "31/3/2023"
   }
 ]; 
