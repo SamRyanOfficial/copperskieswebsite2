@@ -5,6 +5,8 @@ import { ChevronDown, ChevronUp, MapPin, Calendar } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Review, reviews } from '@/data/reviews';
 
+const INITIAL_DISPLAY_COUNT = 6;
+
 const ReviewCard = ({ review }: { review: Review }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const shouldTruncate = review.text.length > 200;
@@ -76,6 +78,7 @@ const ReviewCard = ({ review }: { review: Review }) => {
 
 const Testimonials = () => {
   const [filter, setFilter] = useState('all');
+  const [showAll, setShowAll] = useState(false);
   
   const filteredReviews = reviews.filter(review => {
     if (filter === 'all') return true;
@@ -84,8 +87,10 @@ const Testimonials = () => {
     return review.event.toLowerCase().includes('birthday');
   });
 
+  const displayedReviews = showAll ? filteredReviews : filteredReviews.slice(0, INITIAL_DISPLAY_COUNT);
+
   return (
-    <section className="py-16 bg-gradient-to-b from-black via-black/95 to-black">
+    <section id="reviews" className="py-16 bg-gradient-to-b from-black via-black/95 to-black">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-6 text-white">What Our Clients Say</h2>
@@ -111,10 +116,31 @@ const Testimonials = () => {
           </div>
 
           <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {filteredReviews.map((review) => (
+            {displayedReviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}
           </div>
+
+          {filteredReviews.length > INITIAL_DISPLAY_COUNT && (
+            <div className="flex justify-center mt-12">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2"
+              >
+                {showAll ? (
+                  <>
+                    Show Less
+                    <ChevronUp className="w-5 h-5" />
+                  </>
+                ) : (
+                  <>
+                    Show More Reviews
+                    <ChevronDown className="w-5 h-5" />
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
