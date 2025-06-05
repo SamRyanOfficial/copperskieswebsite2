@@ -77,15 +77,18 @@ const Testimonials = () => {
   const testimonials = testimonialData.itemListElement;
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-b from-black via-black/95 to-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">What Our Clients Say</h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-50 rounded-lg p-6 shadow-md">
-              <div className="flex items-center mb-4">
+            <div 
+              key={index} 
+              className="bg-gradient-to-r from-gray-900/80 to-black/80 backdrop-blur-sm border border-gray-800/50 rounded-lg p-8 shadow-xl hover:from-gray-900/90 hover:to-black/90 transition-all duration-300"
+            >
+              <div className="flex items-center mb-6">
                 <div className="flex-1">
-                  <p className="font-semibold">{testimonial.author.name}</p>
+                  <p className="font-semibold text-orange-400 text-lg mb-2">{testimonial.author.name}</p>
                   <div className="flex text-yellow-400">
                     {[...Array(5)].map((_, i) => (
                       <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -95,9 +98,13 @@ const Testimonials = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-gray-600 italic">{testimonial.reviewBody}</p>
-              <p className="text-sm text-gray-500 mt-4">
-                {new Date(testimonial.datePublished).toLocaleDateString()}
+              <p className="text-gray-200 leading-relaxed italic">{testimonial.reviewBody}</p>
+              <p className="text-sm text-gray-400 mt-4 font-medium">
+                {new Date(testimonial.datePublished).toLocaleDateString('en-NZ', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
               </p>
             </div>
           ))}
