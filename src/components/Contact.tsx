@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react"
+import { trackContactFormSubmit } from "@/lib/meta-pixel"
 
 interface FormData {
   name: string
@@ -74,6 +75,10 @@ export default function Contact() {
       }
 
       setIsSuccess(true)
+      
+      // Track successful contact form submission for Meta Pixel
+      trackContactFormSubmit()
+      
       // Reset form
       setFormData({
         name: "",
