@@ -1,6 +1,12 @@
 "use client"
 
 import { useState } from "react"
+
+declare global {
+  interface Window {
+    fbq: (action: string, event: string, params?: Record<string, any>) => void;
+  }
+}
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -42,6 +48,19 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    
+    // Track Meta Pixel event for form submission attempt
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+      try {
+        window.fbq('track', 'InitiateCheckout', {
+          content_name: 'Contact Form',
+          content_category: 'Lead Generation'
+        });
+      } catch (error) {
+        console.log('Meta Pixel tracking error:', error);
+      }
+    }
+    
     setIsSubmitting(true)
     setError("")
     setValidationErrors({})
