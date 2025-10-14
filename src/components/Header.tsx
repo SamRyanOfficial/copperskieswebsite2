@@ -96,7 +96,7 @@ export default function Header() {
                 asChild
               >
                 <a
-                  href="https://www.facebook.com/samuel.fisher.1238"
+                  href="https://www.facebook.com/profile.php?id=61576945542143"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
