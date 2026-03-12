@@ -1,22 +1,6 @@
 // Matches shows in Shows.tsx for consistent structured data
 const shows = [
   {
-    date: "Feb 13",
-    venue: "Copper Skies Live",
-    location: "Latitude 37",
-    time: "9:30 PM - 12:30 AM",
-    year: "2026",
-    isFree: true,
-  },
-  {
-    date: "Mar 1",
-    venue: "Big Jam",
-    location: "Astrolabe",
-    time: "4:00 PM - 8:00 PM",
-    year: "2026",
-    isFree: true,
-  },
-  {
     date: "Mar 21",
     venue: "Copper Skies Live",
     location: "Latitude37",
@@ -29,6 +13,22 @@ const shows = [
     venue: "Copper Skies Live",
     location: "Latitude37",
     time: "9:30 PM - 12:30 AM",
+    year: "2026",
+    isFree: true,
+  },
+  {
+    date: "Apr 18",
+    venue: "Country Night",
+    location: "The Good Home",
+    time: "8:30 PM - 11:30 PM",
+    year: "2026",
+    isFree: true,
+  },
+  {
+    date: "May 3",
+    venue: "Jam Night",
+    location: "Astrolabe",
+    time: "4:00 PM - 8:00 PM",
     year: "2026",
     isFree: true,
   },
