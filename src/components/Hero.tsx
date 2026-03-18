@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Play, Calendar, MapPin, Music } from "lucide-react"
+import { Play, Calendar, MapPin } from "lucide-react"
 
 export default function Hero() {
   return (
@@ -13,9 +13,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/90" />
       </div>
 
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pb-4 sm:pb-0">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pb-6 sm:pb-8">
         <h1 className="sr-only">Copper Skies - Wedding & Corporate Event Musicians Mount Maunganui</h1>
-        <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-4 sm:mb-6 md:mb-8">
+        <div className="space-y-4 sm:space-y-5 mb-6 sm:mb-8">
           <div className="relative">
             <Image
               src="/images/copper-skies-logo.png"
@@ -29,42 +29,38 @@ export default function Hero() {
               }}
             />
           </div>
-          <p className="text-xs sm:text-base md:text-xl lg:text-2xl text-gray-200 max-w-2xl mx-auto leading-relaxed px-2 animate-in fade-in duration-1000 delay-300">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed px-2 animate-in fade-in duration-1000 delay-300">
             <span className="font-semibold text-orange-400">Acoustic duo</span>, but with the{" "}
             <span className="font-semibold text-white">energy of a full band</span>.
           </p>
         </div>
 
-        <div className="flex flex-row items-center justify-center space-x-3 sm:space-x-4 mb-4 sm:mb-6 md:mb-8 animate-in fade-in duration-1000 delay-500">
+        <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-6 animate-in fade-in duration-1000 delay-500">
           <Button
-            className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-3 sm:px-8 py-1.5 sm:py-3 text-xs sm:text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 w-32 sm:w-auto"
+            className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 w-[158px] sm:w-[194px] flex-shrink-0"
             asChild
           >
-            <Link href="#music">
-              <Play className="mr-1.5 h-3 w-3 sm:h-5 sm:w-5" />
-              Listen Now
+            <Link href="#contact" className="flex items-center justify-center">
+              <Calendar className="mr-1.5 h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              Check Availability
             </Link>
           </Button>
           <Button
             variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-black bg-transparent px-3 sm:px-8 py-1.5 sm:py-3 text-xs sm:text-base hover:scale-105 transition-all duration-200 shadow-lg w-32 sm:w-auto"
+            className="border-2 border-white text-white hover:bg-white hover:text-black bg-transparent px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base hover:scale-105 transition-all duration-200 shadow-lg w-[158px] sm:w-[194px] flex-shrink-0"
             asChild
           >
-            <Link href="#contact">
-              <Calendar className="mr-1.5 h-3 w-3 sm:h-5 sm:w-5" />
-              Contact us
+            <Link href="#music" className="flex items-center justify-center">
+              <Play className="mr-1.5 h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              Watch us live
             </Link>
           </Button>
         </div>
 
-        <div className="flex flex-row items-center justify-center space-x-3 sm:space-x-6 text-[8px] sm:text-sm text-gray-300 px-2 sm:px-4 animate-in fade-in duration-1000 delay-700">
-          <div className="flex items-center bg-black/30 px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full backdrop-blur-sm whitespace-nowrap">
-            <MapPin className="mr-1 sm:mr-2 h-2.5 w-2.5 sm:h-4 sm:w-4 text-orange-400" />
-            Mount Maunganui, New Zealand
-          </div>
-          <div className="hidden sm:flex items-center bg-black/30 px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full backdrop-blur-sm whitespace-nowrap">
-            <Music className="mr-1 sm:mr-2 h-2.5 w-2.5 sm:h-4 sm:w-4 text-orange-400" />
-            Acoustic Covers
+        <div className="flex flex-row items-center justify-center animate-in fade-in duration-1000 delay-700">
+          <div className="flex items-center gap-2 bg-black/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm text-xs sm:text-sm text-gray-300">
+            <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-orange-400 flex-shrink-0" />
+            <span>Performing across New Zealand</span>
           </div>
         </div>
       </div>

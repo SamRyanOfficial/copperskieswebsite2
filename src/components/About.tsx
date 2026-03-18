@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { Award, Users, Music } from "lucide-react"
 
 export default function About() {
   return (
@@ -26,9 +25,8 @@ export default function About() {
             <div className="space-y-4 text-base sm:text-lg text-gray-300">
               <p>
                 Sam and James are one of the most{" "}
-                <span className="font-semibold text-orange-400">in-demand acts</span> in the Bay of Plenty. So much
-                so, they left their day jobs to perform full-time. With over{" "}
-                <span className="font-semibold text-white">200 weddings and corporate events</span>{" "}
+                <span className="font-semibold text-orange-400">in-demand acts</span> in the Bay of Plenty. With over{" "}
+                <span className="font-semibold text-white">250 weddings and corporate events</span>{" "}
                 under their belt, they&rsquo;ve become the go-to covers duo in Tauranga.
               </p>
               <p>
@@ -36,31 +34,12 @@ export default function About() {
                 <span className="font-semibold text-orange-400">
                   Copper Skies delivers the energy of a full band
                 </span>
-                . With 16+ years of combined professional experience, they know how to read a crowd, fill a dance
-                floor, and keep the party going.
+                . With 16+ years of experience, they know how to read a crowd and keep the dance floor full.
               </p>
               <p>
                 Their <span className="font-semibold text-white">massive setlist</span> spans Rock, Country, Blues,
-                Folk, and Pop from every era, and they come fully equipped with pro sound, lighting, and even a
-                generator when needed.
+                Folk, and Pop from every era, with pro sound, lighting, and a generator when needed.
               </p>
-            </div>
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 mt-8">
-              <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
-                <Award className="h-5 w-5 sm:h-6 sm:w-6 text-orange-400 mx-auto mb-2" />
-                <div className="text-lg sm:text-xl md:text-2xl font-bold text-orange-400">5+</div>
-                <div className="text-[11px] sm:text-sm text-gray-400">Years Pro</div>
-              </div>
-              <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
-                <Users className="h-5 w-5 sm:h-6 sm:w-6 text-orange-400 mx-auto mb-2" />
-                <div className="text-lg sm:text-xl md:text-2xl font-bold text-orange-400">200+</div>
-                <div className="text-[11px] sm:text-sm text-gray-400">Events</div>
-              </div>
-              <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
-                <Music className="h-5 w-5 sm:h-6 sm:w-6 text-orange-400 mx-auto mb-2" />
-                <div className="text-lg sm:text-xl md:text-2xl font-bold text-orange-400">350+</div>
-                <div className="text-[11px] sm:text-sm text-gray-400">Songs</div>
-              </div>
             </div>
           </div>
           <div className="relative order-1 lg:order-2">

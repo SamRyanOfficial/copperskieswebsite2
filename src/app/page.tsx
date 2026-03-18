@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header"
 import Hero from "@/components/Hero"
+import TrustSignals from "@/components/TrustSignals"
 import About from "@/components/About"
 import Music from "@/components/Music"
 import Shows from "@/components/Shows"
@@ -18,12 +19,13 @@ export default function CopperSkiesLanding() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <TrustSignals />
         <About />
         <Music />
-        <Shows />
-        <Gallery />
         <Contact />
         <Testimonials />
+        <Gallery />
+        <Shows />
         <FAQ />
       </main>
       <Footer />

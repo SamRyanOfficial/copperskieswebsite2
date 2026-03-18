@@ -34,7 +34,7 @@ export default function Gallery() {
   return (
     <section id="gallery" className="py-12 sm:py-16 lg:py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="text-center space-y-4 mb-8 sm:mb-12">
+        <div className="text-center space-y-5 mb-10 sm:mb-14">
           <h2 className="text-[2.2rem] sm:text-[2.75rem] md:text-[3.3rem] font-bold text-white">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
               Gallery

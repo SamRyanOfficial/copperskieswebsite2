@@ -122,14 +122,10 @@ export default function Contact() {
         <div className="grid gap-8 sm:gap-12 lg:grid-cols-2">
           <div className="space-y-6 sm:space-y-8">
             <h2 className="text-[2.2rem] sm:text-[2.75rem] md:text-[3.3rem] font-bold text-white text-center">
-              Get in{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                Touch
-              </span>
+              Check Availability for Your Event
             </h2>
             <p className="text-base sm:text-lg text-gray-300">
-              <span className="font-semibold text-orange-400">No robots here</span> - this is direct to us. Feel
-              free to call, text or email!
+              Tell us a little about your event and we&rsquo;ll get back to you quickly.
             </p>
 
             <div className="space-y-4">
@@ -301,6 +297,9 @@ export default function Contact() {
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
+                  <p className="text-sm text-gray-400 text-center">
+                    We usually reply within a few hours.
+                  </p>
                 </form>
               )}
             </CardContent>
