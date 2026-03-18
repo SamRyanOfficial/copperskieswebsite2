@@ -3,7 +3,7 @@
 import { Star } from "lucide-react"
 
 const trustItems = [
-  "200+ Weddings & Events",
+  "250+ Weddings & Events",
   "5-Star Reviews",
   "Performing Across New Zealand",
 ]
@@ -14,7 +14,7 @@ export default function TrustSignals() {
       {/* Subtle divider above */}
       <div className="absolute top-0 left-4 right-4 sm:left-8 sm:right-8 h-px bg-gradient-to-r from-transparent via-gray-600/40 to-transparent" aria-hidden />
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 md:gap-12 lg:gap-16">
           {trustItems.map((item, i) => (
             <div
               key={i}

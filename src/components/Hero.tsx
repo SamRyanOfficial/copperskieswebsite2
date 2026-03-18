@@ -58,9 +58,9 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-row items-center justify-center animate-in fade-in duration-1000 delay-700">
-          <div className="flex items-center gap-2 bg-black/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm text-xs sm:text-sm text-gray-300">
-            <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-orange-400 flex-shrink-0" />
-            <span>Performing across New Zealand</span>
+          <div className="flex items-center gap-2 bg-black/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm text-[10.8px] sm:text-[12.8px] text-gray-200 whitespace-nowrap">
+            <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-orange-400/90 flex-shrink-0" />
+            <span>Live wedding & event music across Tauranga and the Bay of Plenty</span>
           </div>
         </div>
       </div>
