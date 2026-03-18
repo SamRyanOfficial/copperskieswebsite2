@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Script from "next/script";
 import EventSchema from "@/components/EventSchema";
@@ -170,6 +171,7 @@ export default function RootLayout({
           />
         </noscript>
         {children}
+        <Analytics />
       </body>
     </html>
   );
