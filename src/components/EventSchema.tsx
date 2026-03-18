@@ -85,7 +85,7 @@ export default function EventSchema() {
           "endDate": `${dateISO}T${time24}`,
           "performer": {
             "@type": "MusicGroup",
-            "@id": "https://copperskies.co.nz/#organization",
+            "@id": "https://www.copperskies.co.nz/#organization",
             "name": "Copper Skies"
           },
           "location": {

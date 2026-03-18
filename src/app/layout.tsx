@@ -8,17 +8,18 @@ import EventSchema from "@/components/EventSchema";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.copperskies.co.nz"),
   title: "Copper Skies - Wedding & Corporate Event Musicians Mount Maunganui",
-  description: "Premier wedding and corporate event musicians in Mount Maunganui & Bay of Plenty. Professional acoustic duo with 200+ successful events. Book your live music entertainment today.",
+  description: "Copper Skies are a high-energy acoustic duo performing live music for weddings, corporate events and parties across New Zealand.",
   keywords: "wedding music Mount Maunganui, corporate event band Bay of Plenty, live music duo Tauranga, acoustic wedding band, corporate entertainment Mount Maunganui, wedding musicians Tauranga, live band hire Bay of Plenty, wedding reception music, corporate function band, acoustic duo hire",
   openGraph: {
     title: "Copper Skies - Wedding & Corporate Event Musicians Mount Maunganui",
-    description: "Premier wedding and corporate event musicians in Mount Maunganui & Bay of Plenty. Professional acoustic duo with 200+ successful events.",
-    url: "https://copperskies.co.nz",
+    description: "Copper Skies are a high-energy acoustic duo performing live music for weddings, corporate events and parties across New Zealand.",
+    url: "https://www.copperskies.co.nz",
     siteName: "Copper Skies Music",
     images: [
       {
-        url: "https://copperskies.co.nz/images/copper-skies-performing.jpg",
+        url: "https://www.copperskies.co.nz/images/copper-skies-performing.jpg",
         width: 1200,
         height: 630,
         alt: "Copper Skies performing live"
@@ -39,22 +40,22 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "MusicGroup",
-        "@id": "https://copperskies.co.nz/#organization",
+        "@id": "https://www.copperskies.co.nz/#organization",
         "name": "Copper Skies",
-        "url": "https://copperskies.co.nz",
-        "image": "https://copperskies.co.nz/images/copper-skies-logo.png",
-        "description": "Premier wedding and corporate event musicians in Mount Maunganui, delivering unforgettable live music experiences. With over 200 successful events, we specialize in creating the perfect atmosphere for weddings and corporate functions.",
+        "url": "https://www.copperskies.co.nz",
+        "image": "https://www.copperskies.co.nz/images/copper-skies-logo.png",
+        "description": "Copper Skies are a high-energy acoustic duo performing live music for weddings, corporate events and parties across New Zealand.",
         "genre": ["Rock", "Country", "Blues", "Folk", "Pop"],
         "member": [
           {
             "@type": "Person",
             "name": "Sam",
-            "roleName": "Musician"
+            "jobTitle": "Musician"
           },
           {
             "@type": "Person",
             "name": "James",
-            "roleName": "Musician"
+            "jobTitle": "Musician"
           }
         ],
         "location": {
@@ -79,7 +80,7 @@ export default function RootLayout({
             "description": "Live music entertainment for corporate functions, product launches, and business events"
           }
         ],
-        "review": {
+        "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5",
           "ratingCount": "200",
@@ -89,10 +90,10 @@ export default function RootLayout({
       },
       {
         "@type": "Organization",
-        "@id": "https://copperskies.co.nz/#business",
+        "@id": "https://www.copperskies.co.nz/#business",
         "name": "Copper Skies",
-        "url": "https://copperskies.co.nz",
-        "logo": "https://copperskies.co.nz/images/copper-skies-logo.png",
+        "url": "https://www.copperskies.co.nz",
+        "logo": "https://www.copperskies.co.nz/images/copper-skies-logo.png",
         "description": "Professional wedding and corporate event musicians serving Mount Maunganui, Tauranga, and the Bay of Plenty region",
         "areaServed": {
           "@type": "GeoCircle",
@@ -117,12 +118,12 @@ export default function RootLayout({
       },
       {
         "@type": "WebSite",
-        "@id": "https://copperskies.co.nz/#website",
-        "url": "https://copperskies.co.nz",
+        "@id": "https://www.copperskies.co.nz/#website",
+        "url": "https://www.copperskies.co.nz",
         "name": "Copper Skies - Wedding & Corporate Event Musicians",
         "description": "Professional wedding and corporate event musicians in Mount Maunganui, New Zealand",
         "publisher": {
-          "@id": "https://copperskies.co.nz/#organization"
+          "@id": "https://www.copperskies.co.nz/#organization"
         }
       }
     ]

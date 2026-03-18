@@ -14,6 +14,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pb-4 sm:pb-0">
+        <h1 className="sr-only">Copper Skies - Wedding & Corporate Event Musicians Mount Maunganui</h1>
         <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-4 sm:mb-6 md:mb-8">
           <div className="relative">
             <Image
