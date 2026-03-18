@@ -122,10 +122,10 @@ export default function Contact() {
         <div className="grid gap-8 sm:gap-12 lg:grid-cols-2">
           <div className="space-y-6 sm:space-y-8">
             <h2 className="text-[2.2rem] sm:text-[2.75rem] md:text-[3.3rem] font-bold text-white text-center">
-              Check Availability for Your Event
+              Get in <span className="text-orange-400">Touch</span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-300">
-              Tell us a little about your event and we&rsquo;ll get back to you quickly.
+            <p className="text-base sm:text-lg text-gray-300 text-center">
+              <span className="text-orange-400">No robots here</span> - this is direct to us. Feel free to call, text or email!
             </p>
 
             <div className="space-y-4">
