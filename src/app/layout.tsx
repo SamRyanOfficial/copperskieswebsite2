@@ -170,6 +170,11 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="97sktakIMxHk33lVr5IWXw"
+          strategy="afterInteractive"
+        />
         {children}
         <Analytics />
       </body>
