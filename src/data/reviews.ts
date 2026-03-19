@@ -10,6 +10,54 @@ export interface Review {
 export const reviews: Review[] = [
   // Ordered from most recent to least recent (DD/MM/YYYY)
   {
+    id: 20,
+    text: "We used Sam and James for our wedding and I literally cannot express how wonderful they were. They were so kind and personable but they were also SO TALENTED. They took requests from our party and by the end of the night felt like friends we had invited to our wedding. Their range was unmatched and covered so many genres. We cannot imagine what our day would have been like without them. So so so incredible.",
+    author: "Angela and Tina",
+    event: "Wedding",
+    venue: "Hobbiton Movie Set Tours",
+    date: "12/10/2025"
+  },
+  {
+    id: 21,
+    text: "We had Sam & James play at our wedding and could not be happier with our choice! Better Band were seemless to deal with. Sam & James were professional and fantastic performers. The energy they brought to the dance floor and flexibilty to read the room and go to where the crowd were, was everything we hoped for. Thanks so much to Sam & James and the Better Band team for helping boost our wedding to the spectacular day and evening that it was.",
+    author: "Laura & Simon Wegner",
+    event: "Wedding",
+    venue: "The Black Barn, Lake Tarawera",
+    date: "12/4/2025"
+  },
+  {
+    id: 22,
+    text: "Sam and James are bloody awesome, they played at our end of season prizegiving and had everyone up dancing from start to finish. We re-booked them again before they'd even left the venue. Great banter, know how to read a room, and keep everyone up and dancing. Wouldn't get anyone else!",
+    author: "Tori Mouat",
+    event: "Corporate Event",
+    venue: "Classic Flyers",
+    date: "7/6/2025"
+  },
+  {
+    id: 23,
+    text: "We hired Copper Skies for our wedding back in March. They had played at two others we'd been to and made such a great impression that I'd decided I wanted them for my own wedding before I was even engaged. They're super easy to communicate and work with in the lead-up, which is a lifesaver when you're trying to plan a million other things. The atmosphere they create is unmatched. They're true entertainers and play such a great range of music that every single song had people singing along. Most of our guests didn't leave the dance floor the whole night! Everyone I've spoken to since has commented on how they made the evening feel like a real celebration. Honestly, we can't imagine our wedding without them and would recommend them to everyone.",
+    author: "Claudia and Rhys Bryant",
+    event: "Wedding",
+    venue: "Private Residence",
+    date: "1/3/2025"
+  },
+  {
+    id: 24,
+    text: "We had this band play at our wedding in February and they were absolutely fantastic! Their communication leading up to the day was excellent - friendly, clear, and easy to work with. On the night, they arrived early and set up seamlessly, letting us relax and enjoy the start of our celebration without any stress. The music was exactly what we wanted, and everyone had such a great time dancing and singing along. We even requested a particular song that wasn't on their playlist, and it was no problem for them - they learnt it and played it perfectly! We can't recommend this band highly enough!",
+    author: "Kathryn & Cole Jackson",
+    event: "Wedding",
+    venue: "The Arts House Trust, Pah Homestead",
+    date: "21/2/2025"
+  },
+  {
+    id: 25,
+    text: "Absolutely incredible! The first time we saw them was at my sisters wedding and because they were so good we booked them for ours. Great at reading the crowd and choosing the right songs to perform, they have a wide range of music too. These guys should be your top pick, couldn't recommend them enough!",
+    author: "Hannah Shepherd",
+    event: "Wedding",
+    venue: "Private Residence",
+    date: "15/2/2025"
+  },
+  {
     id: 5,
     text: "Sam & James were just the ticket for our big party. It ended up with mostly overseas guests on the dance floor so they didn't know a bunch of the kiwi classics but Sam & James flexed perfectly to find tunes to please the crowd. We enjoyed every minute. Please pass on our thanks to Sam & James for helping make our wedding day the spectacular day it was. Our hope for an active dance floor was well and truly met thanks to them! We will definitely be recommending them to our friends.",
     author: "Laura & Simon",
@@ -32,6 +80,62 @@ export const reviews: Review[] = [
     event: "Tauranga Wedding",
     venue: "Black Walnut",
     date: "7/2/2025"
+  },
+  {
+    id: 26,
+    text: "Sam and James were so incredible when they played at our wedding! They were so much fun, playing music that had everyone on the dance floor for hours. Our guests were raving about how much fun and how talented they are, highly recommend!",
+    author: "Nicola and James Wilkins",
+    event: "Wedding",
+    venue: "Private Residence",
+    date: "10/1/2025"
+  },
+  {
+    id: 27,
+    text: "We had Copper Skies play at our wedding a couple of weeks ago. This talented duo played the perfect mix of songs with all ages and stages on the dancefloor. They played a song for our first dance and then cued everyone else to join us on the dancefloor which was awesome. They really made the night, with more people dancing than we expected! Thanks guys!",
+    author: "Anna and Dion Goodhue",
+    event: "Wedding",
+    venue: "Private Residence",
+    date: "9/1/2025"
+  },
+  {
+    id: 28,
+    text: "Can not express in words how epic the band Copper Skies was for our wedding (but I'll try!) My husband and I agreed a non negotiable was to find the best band and we hit the jackpot! The dance floor was never empty and the boys created the best atmosphere! Our guests still talk about how good they were and they made our day even more unforgettable! 5 millions stars if I could ⭐",
+    author: "Hannah and Matt Lasenby",
+    event: "Wedding",
+    venue: "Papamoa Life Saving Club",
+    date: "20/12/2024"
+  },
+  {
+    id: 29,
+    text: "They played at our Christmas work function and completely made the night — amazing music, great energy, and a brilliant vibe that had everyone up dancing and singing along. Such talented musicians and genuinely awesome guys to deal with. I'd have them back in a heartbeat!",
+    author: "Amber Fraser",
+    event: "Corporate Event",
+    venue: "The Cargo Shed",
+    date: "6/12/2024"
+  },
+  {
+    id: 30,
+    text: "The best band you'll ever come across! If you're after sing alongs everyone knows, a packed dance floor, and the kind of energy that makes the night unforgettable, Sam and James are the ones for you! I've followed their gigs for the past four years, and when it came to planning our wedding, there was no question who I wanted to play. They brought the best vibe and completely brought our night to life. Sam and James have such a special way of making every moment feel personal and full of joy. They're easy to work with, so genuine, and you can truly tell how much they love what they do. I honestly couldn't recommend them enough! You'll never be disappointed by their talent, energy, and hearts. Sam and James will always have a special place in our hearts for making our wedding night so unforgettable.",
+    author: "Keely and Cole Atkinson",
+    event: "Wedding",
+    venue: "Te Tumu Estate",
+    date: "23/11/2024"
+  },
+  {
+    id: 31,
+    text: "The best wedding duo you could ask for! Highly recommend — we've watched these two play a few times and knew we had to have them at our wedding. They were insanely good! They read the crowd perfectly and had everyone up dancing all night. Couldn't have asked for a better vibe or better people. If you're thinking about booking them, do it!",
+    author: "Izzy Cochrane",
+    event: "Wedding",
+    venue: "Takapoto Estate",
+    date: "15/11/2024"
+  },
+  {
+    id: 32,
+    text: "We honestly can't say enough good things — they were absolutely phenomenal at our wedding! From the first song to the last, they brought such incredible energy. The dance floor was packed all night, and every single guest we've spoken to since has commented on how amazing the band was. They played a perfect mix, and got everyone up and dancing. The vibe they created was awesome. They truly helped make the night magical. We feel so lucky to have had Copper Skies as part of our big day. If you're looking for a band that will blow your guests away and leave lasting memories, book them immediately — you won't regret it!",
+    author: "Jessica and James O'Brian",
+    event: "Wedding",
+    venue: "Orua Beach House",
+    date: "7/10/2024"
   },
   {
     id: 4,
