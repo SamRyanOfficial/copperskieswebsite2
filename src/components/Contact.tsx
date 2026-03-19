@@ -37,7 +37,7 @@ export default function Contact() {
     message: "",
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
     // Clear validation error when user starts typing
@@ -48,56 +48,59 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    
+
+    // Client-side validation
+    const errors: ValidationErrors = {}
+    if (!formData.name?.trim()) errors.name = "Name is required"
+    if (!formData.email?.trim()) errors.email = "Email is required"
+    if (!formData.subject?.trim()) errors.subject = "Event type is required"
+    if (!formData.message?.trim()) errors.message = "Message is required"
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors)
+      setError("Please fill in all required fields.")
+      return
+    }
+
     // Track Meta Pixel event for form submission attempt
-    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+    if (typeof window !== "undefined" && typeof window.fbq === "function") {
       try {
-        window.fbq('track', 'InitiateCheckout', {
-          content_name: 'Contact Form',
-          content_category: 'Lead Generation'
-        });
+        window.fbq("track", "InitiateCheckout", {
+          content_name: "Contact Form",
+          content_category: "Lead Generation",
+        })
       } catch (error) {
-        console.log('Meta Pixel tracking error:', error);
+        console.log("Meta Pixel tracking error:", error)
       }
     }
-    
+
     setIsSubmitting(true)
     setError("")
     setValidationErrors({})
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/api/leads", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          event_type: formData.subject.trim(),
+          message: formData.message.trim(),
+        }),
       })
 
       const data = await response.json()
 
       if (!response.ok) {
-        if (response.status === 400 && data.details) {
-          // Handle validation errors
-          const errors: ValidationErrors = {}
-          data.details.split(", ").forEach((error: string) => {
-            const [field, message] = error.split(": ")
-            errors[field] = message
-          })
-          setValidationErrors(errors)
-          throw new Error("Please fix the validation errors")
-        } else if (response.status === 429) {
-          throw new Error("Too many requests. Please try again in a minute.")
-        } else {
-          throw new Error(data.error || "Failed to send message")
-        }
+        throw new Error(data.error || "Failed to save your message. Please try again.")
       }
 
       setIsSuccess(true)
-      
+
       // Track successful contact form submission for Meta Pixel
       trackContactFormSubmit()
-      
+
       // Reset form
       setFormData({
         name: "",
@@ -208,7 +211,7 @@ export default function Contact() {
                   <p className="text-gray-300">You will hear from us very soon.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} method="post" className="space-y-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium text-gray-300">
@@ -220,7 +223,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your name"
-                        className={`bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 h-11 focus:border-orange-400 transition-colors ${
+                        className={`bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 h-11 focus:border-orange-400 transition-colors ${
                           validationErrors.name ? "border-red-400" : ""
                         }`}
                         required
@@ -240,7 +243,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="your.email@example.com"
-                        className={`bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 h-11 focus:border-orange-400 transition-colors ${
+                        className={`bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 h-11 focus:border-orange-400 transition-colors ${
                           validationErrors.email ? "border-red-400" : ""
                         }`}
                         required
@@ -252,19 +255,29 @@ export default function Contact() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="subject" className="text-sm font-medium text-gray-300">
-                      Subject
+                      Event Type
                     </label>
-                    <Input
+                    <select
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Booking inquiry, collaboration, etc."
-                      className={`bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 h-11 focus:border-orange-400 transition-colors ${
-                        validationErrors.subject ? "border-red-400" : ""
-                      }`}
                       required
-                    />
+                      className={`flex h-11 w-full rounded-md border px-3 py-2 text-base md:text-sm font-normal bg-gray-800 border-gray-600
+                        hover:border-orange-500/50 focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-colors
+                        [&_option]:bg-gray-800 [&_option]:text-white
+                        ${formData.subject ? "text-white" : "text-gray-400"}
+                        ${validationErrors.subject ? "border-red-400" : ""}`}
+                    >
+                      <option value="" disabled>
+                        Select event type
+                      </option>
+                      <option value="Wedding">Wedding</option>
+                      <option value="Corporate Event">Corporate Event</option>
+                      <option value="Private Party">Private Party</option>
+                      <option value="Bar / Venue">Bar / Venue</option>
+                      <option value="Other">Other</option>
+                    </select>
                     {validationErrors.subject && (
                       <p className="text-red-400 text-xs mt-1">{validationErrors.subject}</p>
                     )}
@@ -280,7 +293,7 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Tell us about your event or venue..."
                       rows={4}
-                      className={`bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 resize-none focus:border-orange-400 transition-colors ${
+                      className={`bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 resize-none focus:border-orange-400 transition-colors ${
                         validationErrors.message ? "border-red-400" : ""
                       }`}
                       required
