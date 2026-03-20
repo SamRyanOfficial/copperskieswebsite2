@@ -79,14 +79,7 @@ export default function RootLayout({
             "name": "Corporate Event Entertainment",
             "description": "Live music entertainment for corporate functions, product launches, and business events"
           }
-        ],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5",
-          "ratingCount": "200",
-          "bestRating": "5",
-          "worstRating": "1"
-        }
+        ]
       },
       {
         "@type": "Organization",
@@ -124,6 +117,25 @@ export default function RootLayout({
         "description": "Professional wedding and corporate event musicians in Mount Maunganui, New Zealand",
         "publisher": {
           "@id": "https://www.copperskies.co.nz/#organization"
+        }
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "MusicGroup",
+          "@id": "https://www.copperskies.co.nz/#organization",
+          "name": "Copper Skies"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Verified Customers"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "200"
         }
       }
     ]
