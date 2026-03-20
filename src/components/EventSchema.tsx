@@ -81,8 +81,17 @@ export default function EventSchema() {
         return {
           "@type": "MusicEvent",
           "name": "Copper Skies Live Performance",
+          "description": `Live acoustic music performance by Copper Skies at ${show.venue}, ${show.location}. ${show.time}. Free entry.`,
+          "image": "https://www.copperskies.co.nz/images/copper-skies-performing.jpg",
+          "eventStatus": "https://schema.org/EventScheduled",
           "startDate": `${dateISO}T${time24}`,
           "endDate": `${dateISO}T${time24}`,
+          "organizer": {
+            "@type": "MusicGroup",
+            "@id": "https://www.copperskies.co.nz/#organization",
+            "name": "Copper Skies",
+            "url": "https://www.copperskies.co.nz"
+          },
           "performer": {
             "@type": "MusicGroup",
             "@id": "https://www.copperskies.co.nz/#organization",
@@ -100,6 +109,7 @@ export default function EventSchema() {
           },
           "offers": {
             "@type": "Offer",
+            "url": "https://www.copperskies.co.nz/#shows",
             "price": "0",
             "priceCurrency": "NZD",
             "availability": "https://schema.org/InStock",
