@@ -85,12 +85,7 @@ export default function RootLayout({
           "ratingValue": "5",
           "ratingCount": "200",
           "bestRating": "5",
-          "worstRating": "1",
-          "itemReviewed": {
-            "@type": "MusicGroup",
-            "@id": "https://www.copperskies.co.nz/#organization",
-            "name": "Copper Skies"
-          }
+          "worstRating": "1"
         }
       },
       {
