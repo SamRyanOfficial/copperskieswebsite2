@@ -54,7 +54,7 @@ export default function Hero() {
               alt="Copper Skies"
               width={600}
               height={180}
-              className="mx-auto h-auto w-[min(calc(100vw-2.5rem),255px)] sm:w-[313px] lg:w-[400px] xl:w-[750px]"
+              className="mx-auto h-auto w-[min(calc(100vw-2.5rem),306px)] sm:w-[376px] lg:w-[400px] xl:w-[750px]"
               style={{
                 filter:
                   "drop-shadow(0 0 1px rgba(0,0,0,0.95)) drop-shadow(0 1px 3px rgba(0,0,0,0.92)) drop-shadow(0 2px 6px rgba(0,0,0,0.78))",
