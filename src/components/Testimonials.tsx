@@ -5,7 +5,7 @@ import { ChevronDown, ChevronUp, MapPin, Calendar, Music, PartyPopper, Briefcase
 import { cn } from "@/lib/utils";
 import { Review, reviews } from '@/data/reviews';
 
-const INITIAL_DISPLAY_COUNT = 6;
+const INITIAL_DISPLAY_COUNT = 3;
 
 const getEventIcon = (eventType: string) => {
   const type = eventType.toLowerCase();
@@ -101,15 +101,17 @@ const Testimonials = () => {
   const displayedReviews = showAll ? filteredReviews : filteredReviews.slice(0, INITIAL_DISPLAY_COUNT);
 
   return (
-    <section id="reviews" className="py-12 sm:py-16 bg-gradient-to-b from-black via-black/95 to-black">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 sm:mb-6 text-white">What Our Clients Say</h2>
-          <p className="text-gray-400 text-center mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base px-4">
+    <section id="reviews" className="section-y bg-gradient-to-b from-black via-black/95 to-black">
+      <div className="section-shell">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-3 text-center text-3xl font-bold tracking-tight text-white sm:mb-5 sm:text-4xl md:text-5xl">
+            What Our Clients Say
+          </h2>
+          <p className="mx-auto mb-8 max-w-2xl px-1 text-center text-base leading-relaxed text-gray-400 sm:mb-12 sm:text-lg">
             Read reviews from our amazing clients who have experienced our live music at their special events.
           </p>
 
-          <div className="flex justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2">
+          <div className="mb-8 flex flex-wrap justify-center gap-3 px-1 sm:mb-12 sm:gap-4">
             {['all', 'weddings', 'corporate', 'birthdays'].map((type) => (
               <button
                 key={type}
@@ -134,20 +136,21 @@ const Testimonials = () => {
           </div>
 
           {filteredReviews.length > INITIAL_DISPLAY_COUNT && (
-            <div className="flex justify-center mt-8 sm:mt-12">
+            <div className="mt-8 flex justify-center sm:mt-12">
               <button
+                type="button"
                 onClick={() => setShowAll(!showAll)}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 text-sm sm:text-base"
+                className="flex items-center gap-2 rounded-full bg-orange-500 px-6 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-orange-600 sm:px-8 sm:py-3 sm:text-base"
               >
                 {showAll ? (
                   <>
-                    Show Less
-                    <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5" />
+                    Show less
+                    <ChevronUp className="h-4 w-4 sm:h-5 sm:w-5" />
                   </>
                 ) : (
                   <>
-                    Show More Reviews
-                    <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
+                    Show more reviews
+                    <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5" />
                   </>
                 )}
               </button>

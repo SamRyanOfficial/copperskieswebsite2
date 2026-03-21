@@ -1,0 +1,17 @@
+---
+description: Use the ui-ux-pro-max skill (local clone of nextlevelbuilder/ui-ux-pro-max-skill) for UI/UX design and implementation.
+alwaysApply: true
+---
+
+# UI UX Pro Max
+
+For design, layout, visual polish, or UX improvements on this site:
+
+1. **Read** `.cursor/skills/ui-ux-pro-max/SKILL.md` and follow its workflow.
+2. **Run** the design-system command from the repo root (use `python` on Windows):
+   `python .cursor/skills/ui-ux-pro-max/scripts/search.py "<product> <industry> <keywords>" --design-system -p "Copper Skies" -f markdown`
+3. **Supplement** with `--domain ux`, `--domain typography`, or `--stack nextjs` / `--stack html-tailwind` as SKILL.md describes.
+4. **Synthesize** with the **existing brand**: dark cinematic sections, orange accent, current font stack—do not replace the whole theme from a generic palette unless the user asks.
+5. **Verify** the Pre-Delivery Checklist at the end of SKILL.md (contrast, focus, motion, no emoji icons, etc.).
+
+Repository reference: [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill).

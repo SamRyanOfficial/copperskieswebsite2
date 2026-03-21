@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react"
 import { trackContactFormSubmit } from "@/lib/meta-pixel"
+import { BookingScarcityNotice } from "@/components/BookingScarcityNotice"
 
 interface FormData {
   name: string
@@ -120,14 +121,14 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-900 to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section id="contact" className="section-y bg-gradient-to-b from-gray-900 to-gray-800">
+      <div className="section-shell">
         <div className="grid gap-8 sm:gap-12 lg:grid-cols-2">
-          <div className="space-y-6 sm:space-y-8">
-            <h2 className="text-[2.2rem] sm:text-[2.75rem] md:text-[3.3rem] font-bold text-white text-center">
+          <div className="space-y-5 sm:space-y-8">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
               Get in <span className="text-orange-400">Touch</span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-300 text-center">
+            <p className="text-center text-base leading-relaxed text-gray-300 sm:text-lg">
               <span className="text-orange-400">No robots here</span> - this is direct to us. Feel free to call, text or email!
             </p>
 
@@ -157,7 +158,7 @@ export default function Contact() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-orange-400 hover:scale-110 transition-all duration-200 h-10 w-10"
+                className="text-gray-400 hover:text-orange-400 hover:bg-white/5 transition-colors duration-200 ease-out h-11 w-11 sm:h-10 sm:w-10 cursor-pointer"
                 asChild
               >
                 <a
@@ -172,7 +173,7 @@ export default function Contact() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-orange-400 hover:scale-110 transition-all duration-200 h-10 w-10"
+                className="text-gray-400 hover:text-orange-400 hover:bg-white/5 transition-colors duration-200 ease-out h-11 w-11 sm:h-10 sm:w-10 cursor-pointer"
                 asChild
               >
                 <a
@@ -187,7 +188,7 @@ export default function Contact() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-orange-400 hover:scale-110 transition-all duration-200 h-10 w-10"
+                className="text-gray-400 hover:text-orange-400 hover:bg-white/5 transition-colors duration-200 ease-out h-11 w-11 sm:h-10 sm:w-10 cursor-pointer"
                 asChild
               >
                 <a
@@ -202,16 +203,18 @@ export default function Contact() {
             </div>
           </div>
 
-          <Card className="bg-gradient-to-br from-gray-800 to-gray-700 border-gray-600 shadow-xl hover:shadow-2xl transition-all duration-300">
-            <CardContent className="p-4 sm:p-6">
-              {isSuccess ? (
-                <div className="text-center py-8 space-y-4">
-                  <div className="text-3xl mb-2">🎸</div>
-                  <h3 className="text-xl font-semibold text-white">Thanks for your message!</h3>
-                  <p className="text-gray-300">You will hear from us very soon.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} method="post" className="space-y-4">
+          <div className="flex flex-col gap-4">
+            <BookingScarcityNotice variant="contact" />
+            <Card className="bg-gradient-to-br from-gray-800 to-gray-700 border-gray-600 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-4 sm:p-6">
+                {isSuccess ? (
+                  <div className="text-center py-8 space-y-4">
+                    <div className="text-3xl mb-2">🎸</div>
+                    <h3 className="text-xl font-semibold text-white">Thanks for your message!</h3>
+                    <p className="text-gray-300">You will hear from us very soon.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} method="post" className="space-y-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium text-gray-300">
@@ -317,6 +320,7 @@ export default function Contact() {
               )}
             </CardContent>
           </Card>
+          </div>
         </div>
       </div>
     </section>

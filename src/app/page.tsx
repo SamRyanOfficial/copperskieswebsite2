@@ -15,7 +15,7 @@ import Testimonials from "@/components/Testimonials"
 
 export default function CopperSkiesLanding() {
   return (
-    <div className="flex flex-col min-h-screen bg-black text-white">
+    <div className="flex min-h-screen flex-col overflow-x-hidden bg-black text-white">
       <Header />
       <main className="flex-1">
         <Hero />

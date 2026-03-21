@@ -35,11 +35,13 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-16 bg-gradient-to-b from-black via-black/95 to-black">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">Frequently Asked Questions</h2>
-          <div className="space-y-4">
+    <section id="faq" className="section-y bg-gradient-to-b from-black via-black/95 to-black">
+      <div className="section-shell">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-white sm:mb-10 sm:text-4xl">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
               <div
                 key={index}

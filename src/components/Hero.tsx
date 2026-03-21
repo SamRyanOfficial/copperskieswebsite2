@@ -5,72 +5,117 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Play, Calendar, MapPin } from "lucide-react"
 
+const HERO_IMAGE_DESKTOP = "/images/copper-skies-duo.jpg"
+/** Portrait — shown below `md` only */
+const HERO_IMAGE_MOBILE = "/images/copper-skies-hero-mobile.png"
+
 export default function Hero() {
   return (
-    <section className="relative min-h-[40vh] h-auto py-8 md:min-h-screen md:py-0 flex items-end sm:items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-screen min-h-[100dvh] flex-col justify-center overflow-hidden sm:min-h-[85vh] md:min-h-screen">
+      {/* Background: portrait on mobile, existing wide shot from md up */}
       <div className="absolute inset-0">
-        <Image src="/images/copper-skies-duo.jpg" alt="Copper Skies" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/90" />
+        <Image
+          src={HERO_IMAGE_MOBILE}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center md:hidden"
+          aria-hidden
+        />
+        <Image
+          src={HERO_IMAGE_DESKTOP}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="hidden object-cover object-center md:block"
+          aria-hidden
+        />
+        {/* Readability: deep cinematic gradient — dark at bottom ~75–80% */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/45 to-black/[0.78]"
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent sm:from-black/40" aria-hidden />
       </div>
 
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pb-6 sm:pb-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-5 pb-10 pt-6 text-center sm:px-6 sm:pb-12 sm:pt-8 md:py-10">
         <h1 className="sr-only">Copper Skies - Wedding & Corporate Event Musicians Mount Maunganui</h1>
-        <div className="space-y-4 sm:space-y-5 mb-6 sm:mb-8">
+
+        {/* Brand mark — dominant */}
+        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-700 motion-safe:ease-out">
           <div className="relative">
             <Image
               src="/images/copper-skies-logo.png"
               alt="Copper Skies"
               width={600}
               height={180}
-              className="mx-auto h-auto w-[280px] sm:w-[320px] md:w-[400px] lg:w-[750px] animate-in fade-in duration-1000"
+              className="mx-auto h-auto w-[min(calc(100vw-2.5rem),380px)] sm:w-[320px] md:w-[400px] lg:w-[750px]"
               style={{
-                filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.8)) drop-shadow(2px 2px 2px rgba(0,0,0,0.7)) drop-shadow(-2px -2px 2px rgba(0,0,0,0.7))',
-                WebkitFilter: 'drop-shadow(0 0 2px rgba(0,0,0,0.8)) drop-shadow(2px 2px 2px rgba(0,0,0,0.7)) drop-shadow(-2px -2px 2px rgba(0,0,0,0.7))'
+                filter:
+                  "drop-shadow(0 0 1px rgba(0,0,0,0.95)) drop-shadow(0 1px 3px rgba(0,0,0,0.92)) drop-shadow(0 2px 6px rgba(0,0,0,0.78))",
+                WebkitFilter:
+                  "drop-shadow(0 0 1px rgba(0,0,0,0.95)) drop-shadow(0 1px 3px rgba(0,0,0,0.92)) drop-shadow(0 2px 6px rgba(0,0,0,0.78))",
               }}
             />
           </div>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed px-2 animate-in fade-in duration-1000 delay-300">
-            <span className="font-semibold text-orange-400">Acoustic duo</span>, but with the{" "}
-            <span className="font-semibold text-white">energy of a full band</span>.
-          </p>
         </div>
 
-        <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-6 animate-in fade-in duration-1000 delay-500">
+        {/* Subtitle — softer hierarchy */}
+        <p
+          className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-7 max-w-lg text-balance text-lg font-semibold leading-relaxed tracking-tight text-white/80 motion-safe:delay-100 sm:mt-8 sm:max-w-2xl sm:text-xl sm:leading-relaxed md:mt-10 md:text-2xl md:leading-snug"
+        >
+          <span className="font-bold text-orange-400">Acoustic duo</span>
+          <span className="text-white/75">, but with the </span>
+          <span className="font-bold text-white">energy of a full band</span>
+          <span className="text-white/75">.</span>
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-10 flex w-full max-w-md flex-col items-center gap-4 motion-safe:delay-200 sm:mt-12 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4 md:mt-14"
+        >
           <Button
-            className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 w-[158px] sm:w-[194px] flex-shrink-0"
+            className="min-h-[3.25rem] w-full max-w-[20rem] cursor-pointer rounded-2xl border-0 bg-gradient-to-r from-orange-600 to-orange-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-orange-600/30 ring-1 ring-white/10 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.02] hover:from-orange-500 hover:to-orange-500 hover:shadow-xl hover:shadow-orange-500/35 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:w-[200px] sm:max-w-none sm:flex-shrink-0 sm:py-4"
             asChild
           >
-            <Link href="#contact" className="flex items-center justify-center">
-              <Calendar className="mr-1.5 h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <Link href="#contact" className="flex cursor-pointer items-center justify-center gap-2">
+              <Calendar className="h-4 w-4 shrink-0 sm:h-[1.125rem] sm:w-[1.125rem]" />
               Check Availability
             </Link>
           </Button>
           <Button
-            variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-black bg-transparent px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base hover:scale-105 transition-all duration-200 shadow-lg w-[158px] sm:w-[194px] flex-shrink-0"
+            variant="ghost"
+            className="min-h-[3rem] w-full max-w-[20rem] cursor-pointer rounded-2xl border border-white/25 bg-white/5 px-6 py-3 text-base font-medium text-white/90 shadow-none backdrop-blur-sm transition-[transform,background-color,border-color,opacity] duration-200 ease-out hover:scale-[1.02] hover:border-white/35 hover:bg-white/10 hover:text-white active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:w-[200px] sm:max-w-none sm:flex-shrink-0 sm:py-3.5"
             asChild
           >
-            <Link href="#music" className="flex items-center justify-center">
-              <Play className="mr-1.5 h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <Link href="#music" className="flex cursor-pointer items-center justify-center gap-2">
+              <Play className="h-4 w-4 shrink-0 opacity-90 sm:h-[1.125rem] sm:w-[1.125rem]" />
               Watch us live
             </Link>
           </Button>
         </div>
 
-        <div className="flex flex-row items-center justify-center animate-in fade-in duration-1000 delay-700">
-          <div className="flex items-center gap-2 bg-black/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm text-[10.8px] sm:text-[12.8px] text-gray-200 whitespace-nowrap">
-            <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-orange-400/90 flex-shrink-0" />
-            <span>Live wedding & event music across Tauranga and the Bay of Plenty</span>
-          </div>
+        {/* Location — single line; slightly smaller type on narrow widths */}
+        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-10 w-full motion-safe:delay-300 sm:mt-12 md:mt-14">
+          <p className="flex items-center justify-center gap-1.5 text-center text-[10px] leading-tight tracking-tight text-white/85 sm:gap-2.5 sm:text-[13px] sm:leading-normal sm:tracking-normal">
+            <MapPin className="h-3.5 w-3.5 shrink-0 text-orange-400/95 sm:h-4 sm:w-4" aria-hidden />
+            <span className="whitespace-nowrap">
+              Live wedding & event music across Tauranga and the Bay of Plenty
+            </span>
+          </p>
         </div>
       </div>
 
-      {/* Scroll indicator - hidden on mobile */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center shadow-lg">
-          <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+      <div
+        className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 md:block motion-reduce:opacity-70 animate-scroll-hint"
+        aria-hidden
+      >
+        <div className="flex h-10 w-6 justify-center rounded-full border-2 border-white/80 shadow-lg">
+          <div className="mt-2 h-3 w-1 rounded-full bg-white" />
         </div>
       </div>
     </section>
   )
-} 
+}

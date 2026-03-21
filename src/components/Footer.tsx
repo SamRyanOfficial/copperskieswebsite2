@@ -6,7 +6,7 @@ import Link from "next/link"
 export default function Footer() {
   return (
     <footer className="border-t border-gray-800 bg-black">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 sm:py-8">
+      <div className="section-shell py-7 sm:py-8">
         <div className="flex flex-col space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0">
           <div className="flex items-center justify-center md:justify-start">
             <Image
@@ -14,7 +14,7 @@ export default function Footer() {
               alt="Copper Skies"
               width={150}
               height={45}
-              className="h-6 sm:h-8 w-auto hover:scale-105 transition-transform duration-200"
+              className="h-6 sm:h-8 w-auto transition-opacity duration-200 ease-out hover:opacity-90"
             />
           </div>
           <p className="text-xs sm:text-sm text-gray-400 text-center">

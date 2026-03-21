@@ -40,3 +40,9 @@ next-env.d.ts
 # IDE
 .vscode/
 .idea/
+
+# UI/UX Pro Max skill (local clone — reinstall from upstream if needed)
+.cursor/skills/
+
+# Ad-hoc screenshots
+mobile-view-copper-skies.png

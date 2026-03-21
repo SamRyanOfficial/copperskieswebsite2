@@ -4,58 +4,79 @@ import Image from "next/image"
 
 export default function About() {
   return (
-    <section id="about" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-900 to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 items-center">
-          <div className="space-y-8 order-2 lg:order-1">
-            <div className="space-y-2 text-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="section-y border-t border-white/[0.06] bg-gradient-to-b from-gray-950 to-gray-900"
+    >
+      <div className="section-shell">
+        <div className="grid items-stretch gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)] lg:gap-14 xl:gap-16">
+          <div className="order-2 flex min-h-0 min-w-0 flex-col gap-9 sm:gap-11 lg:order-1">
+            <header className="text-center lg:text-left">
+              <h2
+                id="about-heading"
+                className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl md:leading-[1.08]"
+              >
                 Who are{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500">
                   Copper Skies
                 </span>
                 ?
               </h2>
-            </div>
-            <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 p-4 rounded-lg border-l-4 border-orange-500">
-              <p className="text-base sm:text-lg md:text-xl font-medium text-orange-400 text-center lg:text-left">
-                Copper Skies is a high-energy acoustic duo based in Mount Maunganui, Tauranga, performing weddings and events across the Bay of Plenty and throughout New Zealand.
+            </header>
+
+            <p className="mx-auto max-w-2xl text-center text-lg leading-relaxed text-gray-200 sm:text-xl lg:mx-0 lg:text-left">
+              Copper Skies is a high-energy acoustic duo made up of Sam and James, based in Mount
+              Maunganui, Tauranga, delivering live wedding music, corporate entertainment, and private
+              event music across the Bay of Plenty and throughout New Zealand.
+            </p>
+
+            <blockquote className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
+              <p className="text-[1.35rem] font-bold italic leading-snug text-white sm:text-2xl md:text-[1.75rem] md:leading-tight">
+                <span className="mr-1 text-orange-400">&ldquo;</span>
+                We read the room, adjust on the fly, bring the fun, and keep the energy exactly where
+                it needs to be.
+                <span className="ml-0.5 text-orange-400">&rdquo;</span>
+                <span className="ml-1.5 font-semibold not-italic text-orange-300/95"> - Sam Ryan</span>
               </p>
-            </div>
-            <blockquote className="border-l-2 border-gray-600 pl-4 text-base sm:text-lg text-gray-400 italic text-center lg:text-left">
-              &ldquo;Planning an event can be stressful - but the music doesn&rsquo;t have to be. We read the room, bring the fun, and keep the energy exactly where it needs to be.&rdquo;
             </blockquote>
-            <div className="space-y-5 text-base sm:text-lg text-gray-300 text-center lg:text-left">
-              <h3 className="text-lg sm:text-xl font-semibold text-white mb-1">Trusted across the Bay of Plenty</h3>
-              <p>
-                With over{" "}
-                <span className="font-bold text-white">250 weddings and events</span>{" "}
-                behind them, Sam and James have become one of the{" "}
-                <span className="font-bold text-white">most trusted live music acts</span> in the region.
+
+            <div className="mx-auto max-w-2xl space-y-5 text-center lg:mx-0 lg:text-left">
+              <p className="text-lg font-bold text-orange-300 sm:text-xl">
+                Trusted across the Bay of Plenty
               </p>
-              <p>
-                Don&rsquo;t let the duo format fool you -{" "}
-                <span className="font-bold text-white">
-                  Copper Skies delivers the energy of a full band
-                </span>
-                , with a huge multi-genre setlist and professional sound and lighting to keep the dance floor packed all night.
-              </p>
+              <div className="space-y-4 text-base leading-relaxed text-gray-200 sm:text-lg">
+                <p>
+                  With over{" "}
+                  <span className="font-semibold text-white">250 weddings and events</span> behind
+                  them, Sam and James are known as one of the region&rsquo;s most trusted live music
+                  acts.
+                </p>
+                <p>
+                  From relaxed afternoon sets to packed dance floors,{" "}
+                  <span className="font-semibold text-white">Copper Skies</span> brings the energy of
+                  a full band with just two musicians, backed by a huge multi-genre setlist and
+                  professional sound.
+                </p>
+              </div>
             </div>
           </div>
-          <div className="relative order-1 lg:order-2">
-            <div className="aspect-square rounded-lg overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300">
-              <Image
-                src="/images/copper-skies-performing.jpg"
-                alt="Copper Skies performing"
-                width={500}
-                height={500}
-                className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+          <div className="order-1 flex min-h-0 flex-col lg:order-2 lg:min-h-0 lg:h-full">
+            <div className="relative mx-auto aspect-[4/3] w-full max-w-md min-h-[220px] lg:mx-0 lg:max-w-none lg:aspect-auto lg:min-h-0 lg:h-full lg:flex-1">
+              <div className="-rotate-1 absolute inset-0 overflow-hidden rounded-2xl shadow-xl shadow-black/40 ring-2 ring-white/10 sm:rounded-3xl lg:-rotate-[0.5deg]">
+                <Image
+                  src="/images/copper-skies-performing.jpg"
+                  alt="Copper Skies performing"
+                  fill
+                  sizes="(min-width: 1024px) 42vw, (min-width: 640px) 90vw, 100vw"
+                  className="object-cover object-[center_36%] transition duration-300 ease-out hover:brightness-105 motion-reduce:transition-none sm:object-[center_38%] lg:object-center"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
   )
-} 
+}

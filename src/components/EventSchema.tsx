@@ -26,7 +26,7 @@ const shows = [
   },
   {
     date: "May 3",
-    venue: "Jam Night",
+    venue: "Big Jam",
     location: "Astrolabe",
     time: "4:00 PM - 8:00 PM",
     year: "2026",

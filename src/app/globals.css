@@ -53,10 +53,33 @@
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-black text-white min-h-screen;
-  }
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth overflow-x-hidden;
+  }
+  body {
+    @apply bg-black text-white min-h-screen overflow-x-hidden antialiased;
+  }
+}
+
+/* Cohesive mobile rhythm: comfortable line length + less accidental pull-to-refresh noise */
+@layer utilities {
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-5 md:px-6;
+  }
+  .section-y {
+    @apply py-10 sm:py-16 lg:py-20;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

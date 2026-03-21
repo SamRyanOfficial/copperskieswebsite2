@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Script from "next/script";
 import EventSchema from "@/components/EventSchema";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.copperskies.co.nz"),
@@ -154,7 +158,7 @@ export default function RootLayout({
         <meta name="geo.position" content="-37.6333;176.1833" />
         <meta name="ICBM" content="-37.6333, 176.1833" />
       </head>
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <Script 
           id="meta-pixel"
           strategy="afterInteractive"

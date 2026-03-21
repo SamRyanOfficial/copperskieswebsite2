@@ -11,16 +11,19 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+      <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6">
+        <div className="flex h-16 min-w-0 items-center justify-between gap-2 sm:h-20 sm:gap-4">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
+          <Link
+            href="/"
+            className="flex-shrink-0 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+          >
             <Image
               src="/images/copper-skies-logo.png"
               alt="Copper Skies"
               width={150}
               height={45}
-              className="h-6 sm:h-8 w-auto hover:scale-105 transition-transform duration-200"
+              className="h-6 sm:h-8 w-auto transition-opacity duration-200 ease-out hover:opacity-90"
             />
           </Link>
 
@@ -28,56 +31,56 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="#about"
-              className="text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-200 hover:scale-105"
+              className="text-sm font-medium text-gray-300 hover:text-orange-400 rounded-sm px-1 py-1 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               About
             </Link>
             <Link
               href="#music"
-              className="text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-200 hover:scale-105"
+              className="text-sm font-medium text-gray-300 hover:text-orange-400 rounded-sm px-1 py-1 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Music
             </Link>
             <Link
               href="#shows"
-              className="text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-200 hover:scale-105"
+              className="text-sm font-medium text-gray-300 hover:text-orange-400 rounded-sm px-1 py-1 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Shows
             </Link>
             <Link
               href="#gallery"
-              className="text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-200 hover:scale-105"
+              className="text-sm font-medium text-gray-300 hover:text-orange-400 rounded-sm px-1 py-1 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Gallery
             </Link>
             <Link
               href="#reviews"
-              className="text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-200 hover:scale-105"
+              className="text-sm font-medium text-gray-300 hover:text-orange-400 rounded-sm px-1 py-1 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Reviews
             </Link>
             <Link
               href="#faq"
-              className="text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-200 hover:scale-105"
+              className="text-sm font-medium text-gray-300 hover:text-orange-400 rounded-sm px-1 py-1 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               FAQ
             </Link>
             <Link
               href="#contact"
-              className="text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-200 hover:scale-105"
+              className="text-sm font-medium text-gray-300 hover:text-orange-400 rounded-sm px-1 py-1 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Contact
             </Link>
           </nav>
 
           {/* Right Side Items */}
-          <div className="flex items-center space-x-4">
-            {/* Social Media Icons - Now visible on both mobile and desktop */}
-            <div className="flex items-center space-x-2">
+          <div className="flex min-w-0 shrink items-center gap-1 sm:gap-4">
+            {/* Social: md+ only — avoids crowding & horizontal overflow on small phones */}
+            <div className="hidden items-center gap-0.5 sm:gap-2 md:flex">
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-orange-400 hover:scale-110 transition-all duration-200 h-8 w-8"
+                className="text-gray-400 hover:text-orange-400 hover:bg-white/5 transition-colors duration-200 ease-out h-11 w-11 sm:h-10 sm:w-10 cursor-pointer"
                 asChild
               >
                 <a
@@ -92,7 +95,7 @@ export default function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-orange-400 hover:scale-110 transition-all duration-200 h-8 w-8"
+                className="text-gray-400 hover:text-orange-400 hover:bg-white/5 transition-colors duration-200 ease-out h-11 w-11 sm:h-10 sm:w-10 cursor-pointer"
                 asChild
               >
                 <a
@@ -107,7 +110,7 @@ export default function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-orange-400 hover:scale-110 transition-all duration-200 h-8 w-8"
+                className="text-gray-400 hover:text-orange-400 hover:bg-white/5 transition-colors duration-200 ease-out h-11 w-11 sm:h-10 sm:w-10 cursor-pointer"
                 asChild
               >
                 <a
@@ -123,17 +126,19 @@ export default function Header() {
 
             {/* Desktop Book Us Button */}
             <Button
-              className="hidden md:inline-flex bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white"
+              className="hidden md:inline-flex min-h-11 cursor-pointer bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white transition-[background-color,box-shadow] duration-200 ease-out shadow-md hover:shadow-lg"
               asChild
             >
-              <Link href="#contact">Book Us</Link>
+              <Link href="#contact" className="cursor-pointer">
+                Book Us
+              </Link>
             </Button>
 
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-gray-400 hover:text-orange-400"
+              className="md:hidden min-h-11 min-w-11 h-11 w-11 text-gray-400 hover:text-orange-400 cursor-pointer"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
@@ -152,49 +157,49 @@ export default function Header() {
           <nav className="flex flex-col space-y-4 px-4 py-6">
             <Link
               href="#about"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors duration-200 ease-out py-3 min-h-11 flex items-center justify-center text-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link
               href="#music"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors duration-200 ease-out py-3 min-h-11 flex items-center justify-center text-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Music
             </Link>
             <Link
               href="#shows"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors duration-200 ease-out py-3 min-h-11 flex items-center justify-center text-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Shows
             </Link>
             <Link
               href="#gallery"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors duration-200 ease-out py-3 min-h-11 flex items-center justify-center text-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Gallery
             </Link>
             <Link
               href="#reviews"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors duration-200 ease-out py-3 min-h-11 flex items-center justify-center text-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Reviews
             </Link>
             <Link
               href="#faq"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors duration-200 ease-out py-3 min-h-11 flex items-center justify-center text-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               FAQ
             </Link>
             <Link
               href="#contact"
-              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors py-2 text-center"
+              className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors duration-200 ease-out py-3 min-h-11 flex items-center justify-center text-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
@@ -202,11 +207,13 @@ export default function Header() {
 
             {/* Mobile Book Us Button */}
             <Button
-              className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white mt-4 py-3 w-full"
+              className="min-h-11 cursor-pointer bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white mt-4 py-3 w-full transition-[background-color,box-shadow] duration-200 ease-out"
               asChild
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <Link href="#contact">Book Us</Link>
+              <Link href="#contact" className="cursor-pointer">
+                Book Us
+              </Link>
             </Button>
           </nav>
         </div>

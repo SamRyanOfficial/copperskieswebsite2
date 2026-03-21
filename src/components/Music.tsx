@@ -5,24 +5,24 @@ import { Volume2 } from "lucide-react"
 
 export default function Music() {
   return (
-    <section id="music" className="py-12 sm:py-16 lg:py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="text-center space-y-5 mb-10 sm:mb-14">
-          <h2 className="text-[2.2rem] sm:text-[2.75rem] md:text-[3.3rem] font-bold text-white">
+    <section id="music" className="section-y bg-black">
+      <div className="section-shell">
+        <div className="mb-8 space-y-4 text-center sm:mb-14 sm:space-y-5">
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             Watch Us{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
               Perform
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-2">
+          <p className="mx-auto max-w-5xl px-2 text-center text-base leading-relaxed text-gray-300 sm:text-lg">
             Watch us perform and see why we&rsquo;re{" "}
             <span className="font-semibold text-orange-400">Bay of Plenty&rsquo;s most sought-after duo</span>
           </p>
         </div>
 
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 mb-8 sm:mb-12">
+        <div className="mb-8 grid gap-5 sm:mb-12 sm:gap-8 md:grid-cols-2">
           <div className="space-y-4 group">
-            <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-xl hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+            <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-xl hover:shadow-2xl transition-[box-shadow] duration-300 ease-out ring-1 ring-white/5 group-hover:ring-orange-400/30">
               <iframe
                 width="100%"
                 height="100%"
@@ -37,7 +37,7 @@ export default function Music() {
           </div>
 
           <div className="space-y-4 group">
-            <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-xl hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+            <div className="aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-xl hover:shadow-2xl transition-[box-shadow] duration-300 ease-out ring-1 ring-white/5 group-hover:ring-orange-400/30">
               <iframe
                 width="100%"
                 height="100%"
@@ -54,7 +54,7 @@ export default function Music() {
 
         <div className="text-center">
           <Button
-            className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-6 py-3 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+            className="min-h-11 cursor-pointer rounded-lg bg-gradient-to-r from-orange-600 to-orange-500 px-6 py-3 text-[15px] font-semibold text-white shadow-lg transition-[background-color,box-shadow] duration-200 ease-out hover:from-orange-700 hover:to-orange-600 sm:text-base"
             asChild
           >
             <a href="https://www.youtube.com/@copperskiesmusic" target="_blank" rel="noopener noreferrer">
