@@ -11,11 +11,11 @@ const trustItems = [
 
 export default function TrustSignals() {
   return (
-    <section className="relative border-y border-gray-800 bg-gray-900/80 py-2 sm:py-5">
-      <div className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-transparent via-gray-600/40 to-transparent sm:left-8 sm:right-8" aria-hidden />
+    <section className="relative border-y border-gray-800 bg-gray-900/80 py-2 lg:py-5">
+      <div className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-transparent via-gray-600/40 to-transparent lg:left-8 lg:right-8" aria-hidden />
       <div className="section-shell">
-        {/* Mobile: same width as hero CTA column (max-w-md), stats spread evenly */}
-        <div className="mx-auto flex w-full max-w-md justify-between gap-1 sm:hidden">
+        {/* Phone & tablet: compact stars + short labels (matches mobile sizing) */}
+        <div className="mx-auto flex w-full max-w-md justify-between gap-1 lg:hidden">
           {trustItems.map((item) => (
             <div
               key={item.full}
@@ -26,8 +26,8 @@ export default function TrustSignals() {
             </div>
           ))}
         </div>
-        {/* sm+: full labels */}
-        <div className="hidden flex-col items-center justify-center gap-3.5 sm:flex sm:flex-row sm:gap-8 md:gap-12 lg:gap-16">
+        {/* Large screens: full labels + larger type */}
+        <div className="hidden flex-col items-center justify-center gap-3.5 lg:flex lg:flex-row lg:gap-16">
           {trustItems.map((item) => (
             <div
               key={item.full}
