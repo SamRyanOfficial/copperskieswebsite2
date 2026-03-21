@@ -11,7 +11,7 @@ const HERO_IMAGE_MOBILE = "/images/copper-skies-hero-mobile.png"
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen min-h-[100dvh] flex-col justify-center overflow-hidden sm:min-h-[85vh] lg:min-h-screen">
+    <section className="relative flex min-h-[85dvh] flex-col justify-center overflow-hidden sm:min-h-[72.25vh] lg:min-h-screen">
       {/* Background: portrait on mobile, existing wide shot from md up */}
       <div className="absolute inset-0">
         <Image
@@ -43,7 +43,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="absolute left-1/2 top-[46%] z-10 flex w-full max-w-4xl -translate-x-1/2 flex-col items-center px-5 pb-6 pt-2 text-center sm:top-[44%] sm:px-6 md:top-[42%] lg:relative lg:top-auto lg:left-auto lg:mx-auto lg:translate-x-0 lg:py-10">
+      <div className="absolute left-1/2 top-[46%] z-10 flex w-full max-w-4xl -translate-x-1/2 flex-col items-center px-5 pb-[1.275rem] pt-[0.425rem] text-center sm:top-[44%] sm:px-6 md:top-[42%] lg:relative lg:top-auto lg:left-auto lg:mx-auto lg:translate-x-0 lg:py-10">
         <h1 className="sr-only">Copper Skies - Wedding & Corporate Event Musicians Mount Maunganui</h1>
 
         {/* Brand mark — dominant */}
@@ -54,7 +54,7 @@ export default function Hero() {
               alt="Copper Skies"
               width={600}
               height={180}
-              className="mx-auto h-auto w-[min(calc(100vw-2.5rem),300px)] sm:w-[368px] lg:w-[400px] xl:w-[750px]"
+              className="mx-auto h-auto w-[min(calc(100vw-2.5rem),255px)] sm:w-[313px] lg:w-[400px] xl:w-[750px]"
               style={{
                 filter:
                   "drop-shadow(0 0 1px rgba(0,0,0,0.95)) drop-shadow(0 1px 3px rgba(0,0,0,0.92)) drop-shadow(0 2px 6px rgba(0,0,0,0.78))",
@@ -67,7 +67,7 @@ export default function Hero() {
 
         {/* Subtitle — softer hierarchy */}
         <p
-          className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-4 w-full min-w-0 max-w-2xl whitespace-nowrap text-center text-[clamp(0.45rem,3.8vw,1.5rem)] font-semibold leading-tight tracking-tight text-white/80 motion-safe:delay-100 lg:mt-10 lg:leading-snug"
+          className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-[0.85rem] w-full min-w-0 max-w-2xl whitespace-nowrap text-center text-[clamp(0.45rem,3.23vw,1.5rem)] font-semibold leading-tight tracking-tight text-white/80 motion-safe:delay-100 lg:mt-10 lg:text-[clamp(0.45rem,3.8vw,1.5rem)] lg:leading-snug"
         >
           <span className="font-bold text-orange-400">Acoustic duo</span>
           <span className="text-white/75">, but with the </span>
@@ -77,31 +77,31 @@ export default function Hero() {
 
         {/* CTAs */}
         <div
-          className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-6 flex w-full max-w-md flex-col items-center gap-3 motion-safe:delay-200 lg:max-w-none lg:mt-14 lg:flex-row lg:gap-4 lg:justify-center"
+          className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-[1.275rem] flex w-full max-w-md flex-col items-center gap-[0.6375rem] motion-safe:delay-200 lg:max-w-none lg:mt-14 lg:flex-row lg:gap-4 lg:justify-center"
         >
           <Button
-            className="min-h-[2.4375rem] w-full max-w-[15rem] cursor-pointer rounded-xl border-0 bg-gradient-to-r from-orange-600 to-orange-500 px-[1.125rem] py-2.5 text-xs font-semibold text-white shadow-lg shadow-orange-600/30 ring-1 ring-white/10 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.02] hover:from-orange-500 hover:to-orange-500 hover:shadow-xl hover:shadow-orange-500/35 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 lg:min-h-[3.25rem] lg:w-[200px] lg:max-w-none lg:rounded-2xl lg:px-6 lg:py-4 lg:text-base lg:flex-shrink-0"
+            className="min-h-[2.07rem] w-full max-w-[12.75rem] cursor-pointer rounded-xl border-0 bg-gradient-to-r from-orange-600 to-orange-500 px-[0.956rem] py-[0.531rem] text-[0.6375rem] font-semibold leading-tight text-white shadow-lg shadow-orange-600/30 ring-1 ring-white/10 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.02] hover:from-orange-500 hover:to-orange-500 hover:shadow-xl hover:shadow-orange-500/35 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 lg:min-h-[3.25rem] lg:w-[200px] lg:max-w-none lg:rounded-2xl lg:px-6 lg:py-4 lg:text-base lg:leading-normal lg:flex-shrink-0"
             asChild
           >
             <Link href="#contact" className="flex cursor-pointer items-center justify-center gap-1.5 lg:gap-2">
-              <Calendar className="h-3 w-3 shrink-0 lg:h-4 lg:w-4" />
+              <Calendar className="h-[0.6375rem] w-[0.6375rem] shrink-0 lg:h-4 lg:w-4" />
               Check Availability
             </Link>
           </Button>
           <Button
             variant="ghost"
-            className="min-h-[2.25rem] w-full max-w-[15rem] cursor-pointer rounded-xl border border-white/25 bg-white/5 px-[1.125rem] py-2.5 text-xs font-medium text-white/90 shadow-none backdrop-blur-sm transition-[transform,background-color,border-color,opacity] duration-200 ease-out hover:scale-[1.02] hover:border-white/35 hover:bg-white/10 hover:text-white active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 lg:min-h-[3rem] lg:w-[200px] lg:max-w-none lg:rounded-2xl lg:px-6 lg:py-3.5 lg:text-base lg:flex-shrink-0"
+            className="min-h-[1.9125rem] w-full max-w-[12.75rem] cursor-pointer rounded-xl border border-white/25 bg-white/5 px-[0.956rem] py-[0.531rem] text-[0.6375rem] font-medium leading-tight text-white/90 shadow-none backdrop-blur-sm transition-[transform,background-color,border-color,opacity] duration-200 ease-out hover:scale-[1.02] hover:border-white/35 hover:bg-white/10 hover:text-white active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 lg:min-h-[3rem] lg:w-[200px] lg:max-w-none lg:rounded-2xl lg:px-6 lg:py-3.5 lg:text-base lg:leading-normal lg:flex-shrink-0"
             asChild
           >
             <Link href="#music" className="flex cursor-pointer items-center justify-center gap-1.5 lg:gap-2">
-              <Play className="h-3 w-3 shrink-0 opacity-90 lg:h-4 lg:w-4" />
+              <Play className="h-[0.6375rem] w-[0.6375rem] shrink-0 opacity-90 lg:h-4 lg:w-4" />
               Watch us live
             </Link>
           </Button>
         </div>
 
         {/* Location — single line; slightly smaller type on narrow widths */}
-        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-6 w-full motion-safe:delay-300 lg:mt-14">
+        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-[1.275rem] w-full motion-safe:delay-300 lg:mt-14">
           <p className="flex items-center justify-center gap-1.5 text-center text-[10px] leading-tight tracking-tight text-white/85 sm:gap-2.5 sm:text-[13px] sm:leading-normal sm:tracking-normal">
             <MapPin className="h-3.5 w-3.5 shrink-0 text-orange-400/95 sm:h-4 sm:w-4" aria-hidden />
             <span className="whitespace-nowrap">
