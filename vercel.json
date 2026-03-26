@@ -1,20 +1,3 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        { "type": "host", "value": "copperskies.co.nz" },
-        { "type": "header", "key": "x-forwarded-proto", "value": "http" }
-      ],
-      "destination": "https://www.copperskies.co.nz/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "copperskies.co.nz" }],
-      "destination": "https://www.copperskies.co.nz/:path*",
-      "permanent": true
-    }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json"
 }
