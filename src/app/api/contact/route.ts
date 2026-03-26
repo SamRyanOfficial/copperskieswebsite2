@@ -17,18 +17,6 @@ const limiter = rateLimit({
   uniqueTokenPerInterval: 500,
 })
 
-// Log environment state
-console.log("Environment check:", {
-  hasResendKey: !!process.env.RESEND_API_KEY,
-  keyLength: process.env.RESEND_API_KEY?.length,
-  nodeEnv: process.env.NODE_ENV
-})
-
-// Initialize Resend only if API key is available
-const resend = process.env.RESEND_API_KEY 
-  ? new Resend(process.env.RESEND_API_KEY)
-  : null
-
 const sanitizeHtml = (str: string) => {
   return str
     .replace(/&/g, "&amp;")
@@ -40,21 +28,23 @@ const sanitizeHtml = (str: string) => {
 
 export async function POST(req: Request) {
   try {
-    // Check if Resend is properly initialized
-    if (!resend) {
+    const apiKey = process.env.RESEND_API_KEY?.trim()
+    if (!apiKey) {
       console.error("Resend API key is not configured", {
         hasKey: !!process.env.RESEND_API_KEY,
-        keyLength: process.env.RESEND_API_KEY?.length,
-        nodeEnv: process.env.NODE_ENV
+        nodeEnv: process.env.NODE_ENV,
       })
       return NextResponse.json(
-        { 
-          error: "Email service not configured. Please try again later or contact us directly at copperskiesmusic@gmail.com",
-          details: "Missing API configuration"
+        {
+          error:
+            "Email service not configured. Please try again later or contact us directly at copperskiesmusic@gmail.com",
+          details: "Missing API configuration",
         },
         { status: 503 }
       )
     }
+
+    const resend = new Resend(apiKey)
 
     // Get IP for rate limiting
     const headersList = await headers()
@@ -98,12 +88,12 @@ export async function POST(req: Request) {
       from: "Copper Skies <contact@copperskies.co.nz>",
       to: ["copperskiesmusic@gmail.com"],
       reply_to: sanitizedEmail,
-      subject: `New Contact Form Submission: ${sanitizedSubject}`,
+      subject: `New enquiry (${sanitizedSubject}): ${sanitizedName}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${sanitizedName}</p>
         <p><strong>Email:</strong> ${sanitizedEmail}</p>
-        <p><strong>Subject:</strong> ${sanitizedSubject}</p>
+        <p><strong>Event type:</strong> ${sanitizedSubject}</p>
         <br/>
         <p><strong>Message:</strong></p>
         <p>${sanitizedMessage.replace(/\n/g, "<br/>")}</p>

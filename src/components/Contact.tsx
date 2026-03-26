@@ -56,6 +56,8 @@ export default function Contact() {
     if (!formData.email?.trim()) errors.email = "Email is required"
     if (!formData.subject?.trim()) errors.subject = "Event type is required"
     if (!formData.message?.trim()) errors.message = "Message is required"
+    else if (formData.message.trim().length < 10)
+      errors.message = "Message must be at least 10 characters"
 
     if (Object.keys(errors).length > 0) {
       setValidationErrors(errors)
@@ -80,13 +82,13 @@ export default function Contact() {
     setValidationErrors({})
 
     try {
-      const response = await fetch("/api/leads", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.name.trim(),
           email: formData.email.trim(),
-          event_type: formData.subject.trim(),
+          subject: formData.subject.trim(),
           message: formData.message.trim(),
         }),
       })
@@ -94,7 +96,7 @@ export default function Contact() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to save your message. Please try again.")
+        throw new Error(data.error || "Failed to send your message. Please try again.")
       }
 
       setIsSuccess(true)
