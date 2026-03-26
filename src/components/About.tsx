@@ -69,7 +69,8 @@ export default function About() {
                   src="/images/copper-skies-performing.jpg"
                   alt="Copper Skies performing"
                   fill
-                  sizes="(min-width: 1024px) 42vw, (min-width: 640px) 90vw, 100vw"
+                  quality={70}
+                  sizes="(min-width: 1024px) min(960px, 42vw), (min-width: 640px) min(720px, 90vw), min(100vw, 640px)"
                   className="object-cover object-[center_36%] transition duration-300 ease-out hover:brightness-105 motion-reduce:transition-none sm:object-[center_38%] lg:object-center"
                 />
               </div>

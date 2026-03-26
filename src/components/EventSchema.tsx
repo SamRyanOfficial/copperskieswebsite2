@@ -32,10 +32,48 @@ const shows = [
     year: "2026",
     isFree: true,
   },
-]
+] as const
+
+function toTime24(hour: string, minute: string, period: string): string {
+  let h = parseInt(hour, 10)
+  const m = parseInt(minute, 10)
+  if (Number.isNaN(h) || Number.isNaN(m)) return "12:00:00"
+  const p = period.toUpperCase()
+  if (p === "PM" && h !== 12) h += 12
+  if (p === "AM" && h === 12) h = 0
+  return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:00`
+}
+
+/** Parse "9:30 PM - 12:30 AM" into ISO-local start/end; endDate rolls to next calendar day when crossing midnight. */
+function parseEventStartEnd(
+  timeRange: string,
+  dateISO: string
+): { startDate: string; endDate: string } | null {
+  const m = timeRange.match(
+    /(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i
+  )
+  if (!m) return null
+  const startT = toTime24(m[1], m[2], m[3])
+  const endT = toTime24(m[4], m[5], m[6])
+  const [sh, sm] = startT.split(":").map((x) => parseInt(x, 10))
+  const [eh, em] = endT.split(":").map((x) => parseInt(x, 10))
+  const startMins = sh * 60 + sm
+  const endMins = eh * 60 + em
+
+  let endDay = dateISO
+  if (endMins <= startMins) {
+    const d = new Date(`${dateISO}T12:00:00.000Z`)
+    d.setUTCDate(d.getUTCDate() + 1)
+    endDay = d.toISOString().split("T")[0]
+  }
+
+  return {
+    startDate: `${dateISO}T${startT}`,
+    endDate: `${endDay}T${endT}`,
+  }
+}
 
 export default function EventSchema() {
-  // Use a static date to avoid hydration mismatches
   const validFromDate = "2024-01-01T00:00:00.000Z"
 
   try {
@@ -44,83 +82,56 @@ export default function EventSchema() {
       "@graph": shows
         .map((show) => {
           try {
-            // Parse date more reliably
-            const dateStr = `${show.year} ${show.date}`
-            const fullDate = new Date(dateStr)
-            
-            // Handle invalid dates
-            if (isNaN(fullDate.getTime())) {
-              return null
+            const fullDate = new Date(`${show.date} ${show.year}`)
+            if (Number.isNaN(fullDate.getTime())) return null
+
+            const dateISO = fullDate.toISOString().split("T")[0]
+            const range = parseEventStartEnd(show.time, dateISO)
+            if (!range) return null
+
+            return {
+              "@type": "MusicEvent",
+              name: "Copper Skies Live Performance",
+              description: `Live acoustic music performance by Copper Skies at ${show.venue}, ${show.location}. ${show.time}. Free entry.`,
+              image: "https://www.copperskies.co.nz/images/copper-skies-performing.jpg",
+              eventStatus: "https://schema.org/EventScheduled",
+              startDate: range.startDate,
+              endDate: range.endDate,
+              organizer: {
+                "@type": "MusicGroup",
+                "@id": "https://www.copperskies.co.nz/#organization",
+                name: "Copper Skies",
+                url: "https://www.copperskies.co.nz",
+              },
+              performer: {
+                "@type": "MusicGroup",
+                "@id": "https://www.copperskies.co.nz/#organization",
+                name: "Copper Skies",
+              },
+              location: {
+                "@type": "Place",
+                name: show.venue,
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: show.location,
+                  addressRegion: "Bay of Plenty",
+                  addressCountry: "NZ",
+                },
+              },
+              offers: {
+                "@type": "Offer",
+                url: "https://www.copperskies.co.nz/#shows",
+                price: "0",
+                priceCurrency: "NZD",
+                availability: "https://schema.org/InStock",
+                validFrom: validFromDate,
+              },
             }
-        
-        // Convert time from "8:00 PM" to "20:00" format
-        const time24 = (() => {
-          try {
-            const timeParts = show.time.split(' ')
-            if (timeParts.length < 2) {
-              // If no AM/PM, assume 24-hour format or default
-              return "12:00:00"
-            }
-            const [time, period] = timeParts
-            const [hours, minutes] = time.split(':')
-            if (!hours || !minutes) {
-              return "12:00:00"
-            }
-            let hour24 = parseInt(hours, 10)
-            if (isNaN(hour24)) hour24 = 12
-            if (period === 'PM' && hour24 !== 12) hour24 += 12
-            if (period === 'AM' && hour24 === 12) hour24 = 0
-            return `${hour24.toString().padStart(2, '0')}:${minutes.padStart(2, '0')}:00`
-          } catch (error) {
-            return "12:00:00"
-          }
-        })()
-        
-        const dateISO = fullDate.toISOString().split('T')[0]
-        
-        return {
-          "@type": "MusicEvent",
-          "name": "Copper Skies Live Performance",
-          "description": `Live acoustic music performance by Copper Skies at ${show.venue}, ${show.location}. ${show.time}. Free entry.`,
-          "image": "https://www.copperskies.co.nz/images/copper-skies-performing.jpg",
-          "eventStatus": "https://schema.org/EventScheduled",
-          "startDate": `${dateISO}T${time24}`,
-          "endDate": `${dateISO}T${time24}`,
-          "organizer": {
-            "@type": "MusicGroup",
-            "@id": "https://www.copperskies.co.nz/#organization",
-            "name": "Copper Skies",
-            "url": "https://www.copperskies.co.nz"
-          },
-          "performer": {
-            "@type": "MusicGroup",
-            "@id": "https://www.copperskies.co.nz/#organization",
-            "name": "Copper Skies"
-          },
-          "location": {
-            "@type": "Place",
-            "name": show.venue,
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": show.location,
-              "addressRegion": "Bay of Plenty",
-              "addressCountry": "New Zealand"
-            }
-          },
-          "offers": {
-            "@type": "Offer",
-            "url": "https://www.copperskies.co.nz/#shows",
-            "price": "0",
-            "priceCurrency": "NZD",
-            "availability": "https://schema.org/InStock",
-            "validFrom": validFromDate
-          }
-        }
-          } catch (error) {
+          } catch {
             return null
           }
         })
-        .filter((event): event is NonNullable<typeof event> => event !== null)
+        .filter((event): event is NonNullable<typeof event> => event !== null),
     }
 
     return (
@@ -129,13 +140,14 @@ export default function EventSchema() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchemaData) }}
       />
     )
-  } catch (error) {
-    // Return empty script tag if there's an error
+  } catch {
     return (
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [] }) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [] }),
+        }}
       />
     )
   }
-} 
+}
