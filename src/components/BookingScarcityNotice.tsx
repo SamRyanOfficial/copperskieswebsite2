@@ -16,7 +16,7 @@ export function BookingScarcityNotice({ variant }: { variant: Variant }) {
             aria-hidden
           />
           <span className="block text-center">
-            We're already close to 50% booked for Summer 2027
+            We&apos;re already close to 50% booked for Summer 2027
             <br />
             get in touch early to secure your date.
           </span>
