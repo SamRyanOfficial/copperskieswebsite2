@@ -20,13 +20,16 @@ const galleryImages = [
     alt: "Indoor tent performance in green shirts",
   },
   {
-    src: "/images/gallery-5.jpg",
-    alt: "Casual promotional photo with instruments",
+    src: "/images/gallery-5.png",
+    alt: "Professional portrait of a two-man band posing with an acoustic guitar in front of a rustic stone wall",
+    // Portrait in a square tile: bias toward top so heads aren’t clipped (object-cover).
+    objectPosition: "center 22%",
   },
   {
-    src: "/images/gallery-6.jpg",
-    alt: "Artistic silhouette at sunset",
-    objectPosition: "center bottom",
+    src: "/images/gallery-6.png",
+    alt: "Sam and James performing together in an ivy-lined sunroom with guitar and cajon",
+    // Portrait with headroom; slight vertical bias keeps both musicians in the square crop.
+    objectPosition: "center 42%",
   },
 ]
 

@@ -44,6 +44,7 @@ const shows: {
   {
     date: "May 16",
     venue: "Country Night",
+    venueLink: "https://www.instagram.com/p/C8X2J53S3RD/",
     location: "The Good Home",
     time: "8:30 PM - 11:30 PM",
     year: "2026",

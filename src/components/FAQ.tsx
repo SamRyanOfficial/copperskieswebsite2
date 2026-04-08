@@ -23,7 +23,8 @@ const faqs = [
   },
   {
     question: "Where do you perform?",
-    answer: "We're based in Mount Maunganui and regularly perform across Tauranga, the Bay of Plenty, and anywhere in New Zealand that calls for great live music. If the event's right, we'll hit the road — or the skies."
+    answer:
+      "Based in Mount Maunganui and Papamoa, we regularly perform across Tauranga, the Bay of Plenty, and anywhere in New Zealand that calls for great live music. If the event's right, we'll hit the road — or the skies.",
   },
   {
     question: "Why book Copper Skies for corporate events?",
