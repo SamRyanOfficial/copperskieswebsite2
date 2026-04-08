@@ -1,16 +1,20 @@
 "use client"
 
-import Image from "next/image"
+import { useRef } from "react"
+import ScrollFramePlayer from "@/components/ScrollFramePlayer"
 
 export default function About() {
+  const aboutSectionRef = useRef<HTMLElement>(null)
+
   return (
     <section
+      ref={aboutSectionRef}
       id="about"
       aria-labelledby="about-heading"
       className="section-y border-t border-white/[0.06] bg-gradient-to-b from-gray-950 to-gray-900"
     >
       <div className="section-shell">
-        <div className="grid items-stretch gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)] lg:gap-14 xl:gap-16">
+        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)] lg:gap-14 xl:gap-16">
           <div className="order-2 flex min-h-0 min-w-0 flex-col gap-9 sm:gap-11 lg:order-1">
             <header className="text-center lg:text-left">
               <h2
@@ -62,18 +66,12 @@ export default function About() {
             </div>
           </div>
 
-          <div className="order-1 flex min-h-0 flex-col lg:order-2 lg:min-h-0 lg:h-full">
-            <div className="relative mx-auto aspect-[4/3] w-full max-w-md min-h-[220px] lg:mx-0 lg:max-w-none lg:aspect-auto lg:min-h-0 lg:h-full lg:flex-1">
-              <div className="-rotate-1 absolute inset-0 overflow-hidden rounded-2xl shadow-xl shadow-black/40 ring-2 ring-white/10 sm:rounded-3xl lg:-rotate-[0.5deg]">
-                <Image
-                  src="/images/copper-skies-performing.jpg"
-                  alt="Copper Skies performing"
-                  fill
-                  quality={70}
-                  sizes="(min-width: 1024px) min(960px, 42vw), (min-width: 640px) min(720px, 90vw), min(100vw, 640px)"
-                  className="object-cover object-[center_36%] transition duration-300 ease-out hover:brightness-105 motion-reduce:transition-none sm:object-[center_38%] lg:object-center"
-                />
-              </div>
+          <div className="order-1 flex min-h-0 w-full min-w-0 flex-col lg:sticky lg:top-24 lg:order-2 lg:self-start">
+            <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+              <ScrollFramePlayer
+                scrollBoundsRef={aboutSectionRef}
+                alt="Copper Skies performing live — Sam and James on stage"
+              />
             </div>
           </div>
         </div>
