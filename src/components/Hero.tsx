@@ -10,8 +10,9 @@ const HERO_IMAGE_DESKTOP = "/images/copper-skies-duo.jpg"
 const HERO_IMAGE_MOBILE = "/images/copper-skies-hero-mobile.png"
 
 export default function Hero() {
+  // min-height uses svh (stable) not dvh — dynamic vh was resizing the hero when mobile browser chrome hid/showed on scroll
   return (
-    <section className="relative flex min-h-[85dvh] flex-col justify-center overflow-hidden sm:min-h-[72.25vh] lg:min-h-screen">
+    <section className="relative flex min-h-[85svh] flex-col justify-center overflow-hidden sm:min-h-[72.25svh] lg:min-h-screen">
       {/* Background: portrait on mobile, existing wide shot from md up */}
       <div className="absolute inset-0">
         <Image

@@ -39,7 +39,7 @@ const FAQ = () => {
     <section id="faq" className="section-y bg-gradient-to-b from-black via-black/95 to-black">
       <div className="section-shell">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-white sm:mb-10 sm:text-4xl">
+          <h2 className="mb-6 text-center text-2xl font-bold tracking-tight text-white sm:mb-10 sm:text-3xl md:text-4xl">
             Frequently Asked Questions
           </h2>
           <div className="space-y-3 sm:space-y-4">
@@ -54,12 +54,14 @@ const FAQ = () => {
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between"
+                  className="flex w-full items-center justify-between px-4 py-3 text-left sm:px-6 sm:py-4"
                 >
-                  <span className="text-lg font-medium text-white">{faq.question}</span>
+                  <span className="pr-3 text-base font-medium leading-snug text-white sm:text-lg sm:leading-normal">
+                    {faq.question}
+                  </span>
                   <ChevronDown
                     className={cn(
-                      "w-5 h-5 text-orange-400 transition-transform duration-300",
+                      "h-4 w-4 shrink-0 text-orange-400 transition-transform duration-300 sm:h-5 sm:w-5",
                       openIndex === index ? "rotate-180" : ""
                     )}
                   />
@@ -70,7 +72,7 @@ const FAQ = () => {
                     openIndex === index ? "max-h-96" : "max-h-0"
                   )}
                 >
-                  <p className="px-6 pb-4 text-gray-300 leading-relaxed">
+                  <p className="px-4 pb-3 text-sm leading-relaxed text-gray-300 sm:px-6 sm:pb-4 sm:text-base">
                     {faq.answer}
                   </p>
                 </div>

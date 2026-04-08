@@ -1,5 +1,9 @@
 import { CalendarClock } from "lucide-react"
-import { BOOKING_SCARCITY_MESSAGE } from "@/lib/site-messages"
+import {
+  BOOKING_SCARCITY_MESSAGE,
+  BOOKING_SCARCITY_PART1,
+  BOOKING_SCARCITY_PART2,
+} from "@/lib/site-messages"
 
 type Variant = "contact" | "trust"
 
@@ -16,9 +20,9 @@ export function BookingScarcityNotice({ variant }: { variant: Variant }) {
             aria-hidden
           />
           <span className="block text-center">
-            We&apos;re already close to 50% booked for Summer 2027
+            {BOOKING_SCARCITY_PART1}
             <br />
-            get in touch early to secure your date.
+            {BOOKING_SCARCITY_PART2}
           </span>
         </p>
       </div>
@@ -31,7 +35,15 @@ export function BookingScarcityNotice({ variant }: { variant: Variant }) {
         className="mt-0.5 h-3.5 w-3.5 shrink-0 text-orange-400/90 sm:mt-0 sm:h-4 sm:w-4"
         aria-hidden
       />
-      <span className="whitespace-nowrap">{BOOKING_SCARCITY_MESSAGE}</span>
+      {/* Phone: two intentional lines. md+: one real line — nowrap stops awkward wraps after "Summer". */}
+      <span className="min-w-0 flex-1 md:flex-initial">
+        <span className="text-balance md:hidden">
+          <span className="block">{BOOKING_SCARCITY_PART1}</span>
+          <br aria-hidden />
+          <span className="block">{BOOKING_SCARCITY_PART2}</span>
+        </span>
+        <span className="hidden whitespace-nowrap md:inline">{BOOKING_SCARCITY_MESSAGE}</span>
+      </span>
     </p>
   )
 }
