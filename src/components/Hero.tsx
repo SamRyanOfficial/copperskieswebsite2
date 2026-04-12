@@ -4,7 +4,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Play, Calendar, MapPin } from "lucide-react"
-import { HeroReviewMarquee } from "@/components/HeroReviewMarquee"
 
 const HERO_IMAGE_DESKTOP = "/images/copper-skies-duo.jpg"
 /** Portrait — phones & tablets; wide shot from `lg` up */
@@ -77,33 +76,8 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* CTAs */}
-        <div
-          className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-7 flex w-full max-w-md flex-col items-center gap-2 motion-safe:delay-200 sm:mt-8 lg:max-w-none lg:mt-12 lg:flex-row lg:gap-4 lg:justify-center"
-        >
-          <Button
-            className="min-h-10 w-full max-w-[12.75rem] cursor-pointer rounded-xl border-0 bg-gradient-to-r from-orange-600 to-orange-500 px-4 py-2 text-xs font-semibold leading-tight text-white shadow-lg shadow-orange-600/30 ring-1 ring-white/10 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.02] hover:from-orange-500 hover:to-orange-500 hover:shadow-xl hover:shadow-orange-500/35 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:min-h-11 sm:text-sm lg:min-h-[3.25rem] lg:w-[200px] lg:max-w-none lg:rounded-2xl lg:px-6 lg:py-4 lg:text-base lg:leading-normal lg:flex-shrink-0"
-            asChild
-          >
-            <Link href="#contact" className="flex cursor-pointer items-center justify-center gap-2 lg:gap-2">
-              <Calendar className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4 lg:h-4 lg:w-4" />
-              Check Availability
-            </Link>
-          </Button>
-          <Button
-            variant="ghost"
-            className="min-h-10 w-full max-w-[12.75rem] cursor-pointer rounded-xl border border-white/25 bg-white/5 px-4 py-2 text-xs font-medium leading-tight text-white/90 shadow-none backdrop-blur-sm transition-[transform,background-color,border-color,opacity] duration-200 ease-out hover:scale-[1.02] hover:border-white/35 hover:bg-white/10 hover:text-white active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:min-h-11 sm:text-sm lg:min-h-[3rem] lg:w-[200px] lg:max-w-none lg:rounded-2xl lg:px-6 lg:py-3.5 lg:text-base lg:leading-normal lg:flex-shrink-0"
-            asChild
-          >
-            <Link href="#music" className="flex cursor-pointer items-center justify-center gap-2 lg:gap-2">
-              <Play className="h-3.5 w-3.5 shrink-0 opacity-90 sm:h-4 sm:w-4 lg:h-4 lg:w-4" />
-              Watch Live Video
-            </Link>
-          </Button>
-        </div>
-
-        {/* Location — wraps on narrow widths */}
-        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-8 w-full motion-safe:delay-300 sm:mt-9 lg:mt-14">
+        {/* Location — under subtext, above CTAs */}
+        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-4 w-full motion-safe:delay-100 sm:mt-5 lg:mt-6">
           <p className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center text-[10px] leading-tight tracking-tight text-white/85 sm:gap-x-2.5 sm:text-[13px] sm:leading-normal sm:tracking-normal">
             <MapPin className="h-3.5 w-3.5 shrink-0 text-orange-400/80 sm:h-4 sm:w-4" aria-hidden />
             <span className="min-w-0 max-w-[min(100%,22rem)] sm:max-w-none">
@@ -112,9 +86,29 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Review highlights — staged band below location (border + label inside component) */}
-        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-150 motion-safe:ease-out mt-8 w-full max-w-[100vw] border-t border-white/[0.06] pt-8 sm:mt-10 sm:pt-9 lg:mt-11 lg:max-w-5xl lg:pt-10">
-          <HeroReviewMarquee />
+        {/* CTAs */}
+        <div
+          className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-6 flex w-full max-w-md flex-col items-center gap-[0.575rem] motion-safe:delay-200 sm:mt-7 lg:max-w-none lg:mt-10 lg:flex-row lg:gap-[1.15rem] lg:justify-center"
+        >
+          <Button
+            className="min-h-[2.875rem] w-full max-w-[14.6625rem] cursor-pointer rounded-xl border-0 bg-gradient-to-r from-orange-600 to-orange-500 px-[1.15rem] py-[0.575rem] text-[0.8625rem] font-semibold leading-tight text-white shadow-lg shadow-orange-600/30 ring-1 ring-white/10 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.02] hover:from-orange-500 hover:to-orange-500 hover:shadow-xl hover:shadow-orange-500/35 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:min-h-[3.1625rem] sm:text-[1.00625rem] lg:min-h-[3.7375rem] lg:w-[230px] lg:max-w-none lg:rounded-2xl lg:px-[1.725rem] lg:py-[1.15rem] lg:text-[1.15rem] lg:leading-normal lg:flex-shrink-0"
+            asChild
+          >
+            <Link href="#contact" className="flex cursor-pointer items-center justify-center gap-[0.575rem] lg:gap-[0.575rem]">
+              <Calendar className="h-[1.00625rem] w-[1.00625rem] shrink-0 sm:h-[1.15rem] sm:w-[1.15rem] lg:h-[1.15rem] lg:w-[1.15rem]" />
+              Check Availability
+            </Link>
+          </Button>
+          <Button
+            variant="ghost"
+            className="min-h-[2.875rem] w-full max-w-[14.6625rem] cursor-pointer rounded-xl border border-white/25 bg-white/5 px-[1.15rem] py-[0.575rem] text-[0.8625rem] font-medium leading-tight text-white/90 shadow-none backdrop-blur-sm transition-[transform,background-color,border-color,opacity] duration-200 ease-out hover:scale-[1.02] hover:border-white/35 hover:bg-white/10 hover:text-white active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:min-h-[3.1625rem] sm:text-[1.00625rem] lg:min-h-[3.7375rem] lg:w-[230px] lg:max-w-none lg:rounded-2xl lg:px-[1.725rem] lg:py-[1.15rem] lg:text-[1.15rem] lg:leading-normal lg:flex-shrink-0"
+            asChild
+          >
+            <Link href="#music" className="flex cursor-pointer items-center justify-center gap-[0.575rem] lg:gap-[0.575rem]">
+              <Play className="h-[1.00625rem] w-[1.00625rem] shrink-0 opacity-90 sm:h-[1.15rem] sm:w-[1.15rem] lg:h-[1.15rem] lg:w-[1.15rem]" />
+              Watch Live Video
+            </Link>
+          </Button>
         </div>
       </div>
 
