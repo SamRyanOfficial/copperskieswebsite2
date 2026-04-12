@@ -59,9 +59,9 @@ export function BookingScarcityNotice({ variant }: { variant: Variant }) {
           <p className="text-center text-[0.65rem] font-bold uppercase tracking-[0.22em] text-orange-400 sm:text-xs">
             {BOOKING_SCARCITY_EYEBROW}
           </p>
-          <p className="mt-2 inline-flex w-full max-w-full flex-col items-center gap-3 text-center text-base font-bold leading-snug text-white sm:flex-row sm:items-center sm:justify-center sm:gap-4 sm:text-lg">
+          <p className="mt-2 inline-flex w-full max-w-full flex-col items-center gap-1.5 text-center text-xs font-bold leading-tight text-white sm:flex-row sm:items-center sm:justify-center sm:gap-4 sm:text-lg sm:leading-snug">
             <CalendarClock
-              className="h-5 w-5 shrink-0 text-orange-400 drop-shadow-[0_0_8px_rgba(251,146,60,0.5)] sm:h-6 sm:w-6"
+              className="h-4 w-4 shrink-0 text-orange-400 drop-shadow-[0_0_8px_rgba(251,146,60,0.5)] sm:h-6 sm:w-6"
               aria-hidden
             />
             <span className="max-w-full sm:text-balance">
@@ -69,7 +69,7 @@ export function BookingScarcityNotice({ variant }: { variant: Variant }) {
                 <ScarcityRichText />
               </span>
               <span className="sm:hidden">
-                <ScarcityStackedMobile />
+                <ScarcityStackedMobile secondBlockGapClass="mt-0.5" />
               </span>
             </span>
           </p>
