@@ -1,20 +1,17 @@
 "use client"
 
-import { useRef } from "react"
-import ScrollFramePlayer from "@/components/ScrollFramePlayer"
+import AboutVideo from "@/components/AboutVideo"
 
 export default function About() {
-  const aboutSectionRef = useRef<HTMLElement>(null)
-
   return (
     <section
-      ref={aboutSectionRef}
       id="about"
       aria-labelledby="about-heading"
       className="section-y border-t border-white/[0.06] bg-gradient-to-b from-gray-950 to-gray-900"
     >
       <div className="section-shell">
-        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)] lg:gap-14 xl:gap-16">
+        <div className="min-w-0">
+          <div className="grid items-stretch gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)] lg:gap-14 xl:gap-16">
           <div className="order-2 flex min-h-0 min-w-0 flex-col gap-9 sm:gap-11 lg:order-1">
             <header className="text-center lg:text-left">
               <h2
@@ -66,13 +63,11 @@ export default function About() {
             </div>
           </div>
 
-          <div className="order-1 flex min-h-0 w-full min-w-0 flex-col lg:sticky lg:top-24 lg:order-2 lg:self-start">
-            <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
-              <ScrollFramePlayer
-                scrollBoundsRef={aboutSectionRef}
-                alt="Copper Skies performing live — Sam and James on stage"
-              />
+          <div className="order-1 flex min-h-0 w-full min-w-0 flex-col lg:sticky lg:top-24 lg:order-2 lg:h-full lg:self-stretch">
+            <div className="relative flex h-full min-h-[min(260px,52svh)] w-full max-w-md flex-1 flex-col lg:mx-0 lg:min-h-0 lg:max-w-none">
+              <AboutVideo aria-label="Copper Skies live — Country Night performance clip" />
             </div>
+          </div>
           </div>
         </div>
       </div>
