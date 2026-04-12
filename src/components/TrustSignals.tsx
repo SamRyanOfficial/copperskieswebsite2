@@ -11,8 +11,8 @@ const trustItems = [
 
 export default function TrustSignals() {
   return (
-    <section className="relative border-y border-gray-800 bg-gray-900/80 py-2 lg:py-5">
-      <div className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-transparent via-gray-600/40 to-transparent lg:left-8 lg:right-8" aria-hidden />
+    <section className="relative border-y border-white/[0.06] bg-black py-2 lg:py-5">
+      <div className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-transparent via-gray-700/35 to-transparent lg:left-8 lg:right-8" aria-hidden />
       <div className="section-shell">
         {/* Phone & tablet: compact stars + short labels (matches mobile sizing) */}
         <div className="mx-auto flex w-full max-w-md justify-between gap-1 lg:hidden">

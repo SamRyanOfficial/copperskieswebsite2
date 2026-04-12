@@ -70,7 +70,7 @@ export default function Hero() {
             Music that gets people{" "}
             <span className="text-orange-400">dancing</span>
           </h1>
-          <p className="mx-auto mt-3 max-w-xl text-[clamp(0.8125rem,2.65vw,1.125rem)] font-semibold leading-snug tracking-tight text-white/85 sm:mt-4 lg:max-w-2xl">
+          <p className="mx-auto mt-3 max-w-xl text-[clamp(0.934rem,3.05vw,1.294rem)] font-semibold leading-snug tracking-tight text-white/85 sm:mt-4 lg:max-w-2xl">
             <span className="text-white">Bay of Plenty&rsquo;s most in-demand </span>
             <span className="font-bold text-orange-400">wedding duo</span>
           </p>

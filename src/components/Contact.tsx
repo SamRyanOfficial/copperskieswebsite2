@@ -316,7 +316,7 @@ export default function Contact() {
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                   <p className="text-sm text-gray-400 text-center">
-                    We usually reply within a few hours.
+                    We will reply within 24 hours
                   </p>
                 </form>
               )}
