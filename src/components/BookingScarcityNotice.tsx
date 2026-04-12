@@ -1,48 +1,45 @@
 import { CalendarClock } from "lucide-react"
 import {
-  BOOKING_SCARCITY_AFTER_PCT,
-  BOOKING_SCARCITY_BEFORE_PCT,
   BOOKING_SCARCITY_EYEBROW,
-  BOOKING_SCARCITY_PART2_LEAD,
-  BOOKING_SCARCITY_PART2_TAIL,
-  BOOKING_SCARCITY_PCT,
-  BOOKING_SCARCITY_SEASON,
+  BOOKING_SCARCITY_SEG_AFTER_PCT,
+  BOOKING_SCARCITY_SEG_CTA,
+  BOOKING_SCARCITY_SEG_PCT,
+  BOOKING_SCARCITY_SEG_PREFIX,
+  BOOKING_SCARCITY_SEG_TAIL,
 } from "@/lib/site-messages"
 
 type Variant = "contact" | "trust"
 
-/** Shared emphasis — orange key facts + crisp CTA phrase */
-function ScarcityLine1({ className }: { className?: string }) {
+/** Inline emphasis — matches BOOKING_SCARCITY_MESSAGE */
+function ScarcityRichText({ className }: { className?: string }) {
   return (
     <span className={className}>
-      {BOOKING_SCARCITY_BEFORE_PCT}
+      <span className="text-white">{BOOKING_SCARCITY_SEG_PREFIX}</span>
       <span className="font-extrabold text-orange-400 drop-shadow-[0_0_12px_rgba(251,146,60,0.35)]">
-        {BOOKING_SCARCITY_PCT}
+        {BOOKING_SCARCITY_SEG_PCT}
       </span>
-      {BOOKING_SCARCITY_AFTER_PCT}
-      <span className="font-extrabold text-orange-300 drop-shadow-[0_0_14px_rgba(253,186,116,0.25)]">
-        {BOOKING_SCARCITY_SEASON}
-      </span>
+      <span className="text-white">{BOOKING_SCARCITY_SEG_AFTER_PCT}</span>
+      <span className="font-bold text-orange-200">{BOOKING_SCARCITY_SEG_CTA}</span>
+      <span className="font-semibold text-gray-100">{BOOKING_SCARCITY_SEG_TAIL}</span>
     </span>
   )
 }
 
-function ScarcityLine2({ className }: { className?: string }) {
+/** Stacked for narrow phones: break after "booked —" */
+function ScarcityStackedMobile() {
   return (
-    <span className={className}>
-      <span className="font-bold text-orange-200">{BOOKING_SCARCITY_PART2_LEAD}</span>
-      <span className="font-semibold text-gray-100">{BOOKING_SCARCITY_PART2_TAIL}</span>
-    </span>
-  )
-}
-
-/** Single line for md+ (nowrap — avoids awkward wrap after “Summer”) */
-function ScarcityOneLine({ className }: { className?: string }) {
-  return (
-    <span className={`whitespace-nowrap ${className ?? ""}`}>
-      <ScarcityLine1 />
-      <span className="font-bold text-white/90"> — </span>
-      <ScarcityLine2 />
+    <span className="text-balance md:hidden">
+      <span className="block">
+        <span className="text-white">{BOOKING_SCARCITY_SEG_PREFIX}</span>
+        <span className="font-extrabold text-orange-400 drop-shadow-[0_0_12px_rgba(251,146,60,0.35)]">
+          {BOOKING_SCARCITY_SEG_PCT}
+        </span>
+        <span className="text-white">{BOOKING_SCARCITY_SEG_AFTER_PCT.trimEnd()}</span>
+      </span>
+      <span className="mt-1 block">
+        <span className="font-bold text-orange-200">{BOOKING_SCARCITY_SEG_CTA}</span>
+        <span className="font-semibold text-gray-100">{BOOKING_SCARCITY_SEG_TAIL}</span>
+      </span>
     </span>
   )
 }
@@ -67,12 +64,12 @@ export function BookingScarcityNotice({ variant }: { variant: Variant }) {
               className="h-5 w-5 shrink-0 text-orange-400 drop-shadow-[0_0_8px_rgba(251,146,60,0.5)] sm:h-6 sm:w-6"
               aria-hidden
             />
-            <span className="max-w-full text-balance">
-              <span className="block">
-                <ScarcityLine1 />
+            <span className="max-w-full sm:text-balance">
+              <span className="hidden sm:block">
+                <ScarcityRichText />
               </span>
-              <span className="mt-1.5 block">
-                <ScarcityLine2 />
+              <span className="sm:hidden">
+                <ScarcityStackedMobile />
               </span>
             </span>
           </p>
@@ -92,26 +89,17 @@ export function BookingScarcityNotice({ variant }: { variant: Variant }) {
           {BOOKING_SCARCITY_EYEBROW}
         </p>
         <div className="mt-2 flex justify-center">
-          {/*
-            w-fit: shrink-wrap cluster so flex justify-center truly centers (see comment in git history).
-          */}
           <p className="inline-flex w-fit max-w-full flex-col items-center gap-2 text-sm font-bold leading-snug text-white drop-shadow-[0_1px_12px_rgba(0,0,0,0.65)] sm:gap-2.5 sm:text-base md:max-w-none md:flex-row md:items-center md:justify-center md:gap-2.5 md:text-lg">
             <CalendarClock
               className="h-4 w-4 shrink-0 text-orange-400 drop-shadow-[0_0_10px_rgba(251,146,60,0.45)] sm:h-5 sm:w-5"
               aria-hidden
             />
             <span className="text-center md:text-left">
-              <span className="md:hidden">
-                <span className="block">
-                  <ScarcityLine1 />
-                </span>
-                <br aria-hidden />
-                <span className="mt-0.5 block">
-                  <ScarcityLine2 />
-                </span>
+              <span className="hidden md:block">
+                <ScarcityRichText />
               </span>
-              <span className="hidden md:inline">
-                <ScarcityOneLine />
+              <span className="md:hidden">
+                <ScarcityStackedMobile />
               </span>
             </span>
           </p>

@@ -19,9 +19,10 @@ const ReviewCard = ({ review }: { review: Review }) => {
   const shouldTruncate = review.text.length > 200;
 
   return (
-    <div 
+    <div
+      id={`review-${review.id}`}
       className={cn(
-        "bg-gradient-to-r from-gray-900/80 to-black/80 backdrop-blur-sm border border-gray-800/50 rounded-lg shadow-xl",
+        "scroll-mt-28 bg-gradient-to-r from-gray-900/80 to-black/80 backdrop-blur-sm border border-gray-800/50 rounded-lg shadow-xl",
         "hover:from-gray-900/90 hover:to-black/90 transition-all duration-300",
         "flex flex-col h-full",
         "p-4 sm:p-6 md:p-8"

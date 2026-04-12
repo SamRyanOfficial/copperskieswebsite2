@@ -93,12 +93,18 @@ const config: Config = {
 			'scroll-hint': {
 				'0%, 100%': { opacity: '0.45' },
 				'50%': { opacity: '1' }
+			},
+			/** Seamless horizontal loop: track is duplicated; -50% = one full pass */
+			'hero-quote-marquee': {
+				'0%': { transform: 'translateX(0)' },
+				'100%': { transform: 'translateX(-50%)' }
 			}
 		},
 		animation: {
 			'accordion-down': 'accordion-down 0.2s ease-out',
 			'accordion-up': 'accordion-up 0.2s ease-out',
-			'scroll-hint': 'scroll-hint 2s ease-in-out 3'
+			'scroll-hint': 'scroll-hint 2s ease-in-out 3',
+			'hero-quote-marquee': 'hero-quote-marquee 62s linear infinite'
 		}
   	}
   },
