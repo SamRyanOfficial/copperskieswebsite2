@@ -76,8 +76,8 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Location — under subtext, above CTAs */}
-        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-4 w-full motion-safe:delay-100 sm:mt-5 lg:mt-6">
+        {/* Location — under subtext, above CTAs (hidden on phones; md+ = iPad / desktop) */}
+        <div className="hidden motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 md:mt-4 md:block md:w-full motion-safe:delay-100 lg:mt-6">
           <p className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center text-[10px] leading-tight tracking-tight text-white/85 sm:gap-x-2.5 sm:text-[13px] sm:leading-normal sm:tracking-normal">
             <MapPin className="h-3.5 w-3.5 shrink-0 text-orange-400/80 sm:h-4 sm:w-4" aria-hidden />
             <span className="min-w-0 max-w-[min(100%,22rem)] sm:max-w-none">

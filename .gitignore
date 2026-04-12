@@ -46,3 +46,6 @@ next-env.d.ts
 
 # Ad-hoc screenshots
 mobile-view-copper-skies.png
+
+# Local Kling animation frame exports (not part of site build)
+/Kling James and Sam Animation Frames/

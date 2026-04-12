@@ -26,7 +26,7 @@ function ScarcityRichText({ className }: { className?: string }) {
 }
 
 /** Stacked for narrow phones: break after "booked —" */
-function ScarcityStackedMobile() {
+function ScarcityStackedMobile({ secondBlockGapClass = "mt-1" }: { secondBlockGapClass?: string }) {
   return (
     <span className="text-balance md:hidden">
       <span className="block">
@@ -36,7 +36,7 @@ function ScarcityStackedMobile() {
         </span>
         <span className="text-white">{BOOKING_SCARCITY_SEG_AFTER_PCT.trimEnd()}</span>
       </span>
-      <span className="mt-1 block">
+      <span className={`block ${secondBlockGapClass}`}>
         <span className="font-bold text-orange-200">{BOOKING_SCARCITY_SEG_CTA}</span>
         <span className="font-semibold text-gray-100">{BOOKING_SCARCITY_SEG_TAIL}</span>
       </span>
@@ -89,7 +89,7 @@ export function BookingScarcityNotice({ variant }: { variant: Variant }) {
           {BOOKING_SCARCITY_EYEBROW}
         </p>
         <div className="mt-2 flex justify-center">
-          <p className="inline-flex w-fit max-w-full flex-col items-center gap-2 text-sm font-bold leading-snug text-white drop-shadow-[0_1px_12px_rgba(0,0,0,0.65)] sm:gap-2.5 sm:text-base md:max-w-none md:flex-row md:items-center md:justify-center md:gap-2.5 md:text-lg">
+          <p className="inline-flex w-fit max-w-full flex-col items-center gap-1.5 text-xs font-bold leading-tight text-white drop-shadow-[0_1px_12px_rgba(0,0,0,0.65)] sm:gap-2.5 sm:text-base sm:leading-snug md:max-w-none md:flex-row md:items-center md:justify-center md:gap-2.5 md:text-lg">
             <CalendarClock
               className="h-4 w-4 shrink-0 text-orange-400 drop-shadow-[0_0_10px_rgba(251,146,60,0.45)] sm:h-5 sm:w-5"
               aria-hidden
@@ -99,7 +99,7 @@ export function BookingScarcityNotice({ variant }: { variant: Variant }) {
                 <ScarcityRichText />
               </span>
               <span className="md:hidden">
-                <ScarcityStackedMobile />
+                <ScarcityStackedMobile secondBlockGapClass="mt-0.5" />
               </span>
             </span>
           </p>
