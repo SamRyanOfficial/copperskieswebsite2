@@ -66,8 +66,7 @@ export default function Shows() {
             </span>
           </h2>
           <p className="px-1 text-base leading-relaxed text-gray-300 sm:text-lg">
-            Catch us live at these venues –{" "}
-            <span className="font-semibold text-orange-400">all shows are free entry!</span>
+            Catch us live at these venues
           </p>
         </div>
 
