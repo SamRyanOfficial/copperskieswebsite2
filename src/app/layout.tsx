@@ -147,6 +147,18 @@ export default function RootLayout({
         <meta name="ICBM" content="-37.6333, 176.1833" />
       </head>
       <body className={poppins.className}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XYCGYQFMKT"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XYCGYQFMKT');
+          `}
+        </Script>
         <Script 
           id="meta-pixel"
           strategy="afterInteractive"
