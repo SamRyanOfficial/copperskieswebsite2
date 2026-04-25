@@ -13,12 +13,15 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.copperskies.co.nz"),
-  title: "Copper Skies - Wedding & Corporate Event Musicians Mount Maunganui",
-  description: "Copper Skies are a high-energy acoustic duo performing live music for weddings, corporate events and parties across New Zealand.",
-  keywords: "wedding music Mount Maunganui, corporate event band Bay of Plenty, live music duo Tauranga, acoustic wedding band, corporate entertainment Mount Maunganui, wedding musicians Tauranga, live band hire Bay of Plenty, wedding reception music, corporate function band, acoustic duo hire",
+  title: "Tauranga Wedding Band & Live Music | Copper Skies NZ",
+  description:
+    "High-energy Tauranga wedding band Copper Skies delivering live music for weddings, corporate events and parties across the Bay of Plenty and New Zealand.",
+  keywords:
+    "Tauranga wedding band, live wedding music, wedding music Mount Maunganui, corporate event band Bay of Plenty, live music duo Tauranga, acoustic wedding band, corporate entertainment Mount Maunganui, wedding musicians Tauranga, live band hire Bay of Plenty, wedding reception music, corporate function band, acoustic duo hire",
   openGraph: {
-    title: "Copper Skies - Wedding & Corporate Event Musicians Mount Maunganui",
-    description: "Copper Skies are a high-energy acoustic duo performing live music for weddings, corporate events and parties across New Zealand.",
+    title: "Tauranga Wedding Band & Live Music | Copper Skies NZ",
+    description:
+      "High-energy Tauranga wedding band Copper Skies delivering live music for weddings, corporate events and parties across the Bay of Plenty and New Zealand.",
     url: "https://www.copperskies.co.nz",
     siteName: "Copper Skies Music",
     images: [
