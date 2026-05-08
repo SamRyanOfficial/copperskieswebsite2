@@ -63,8 +63,8 @@ export default function About() {
             </div>
           </div>
 
-          <div className="order-1 flex min-h-0 w-full min-w-0 flex-col lg:sticky lg:top-24 lg:order-2 lg:h-full lg:self-stretch">
-            <div className="relative flex h-full min-h-[min(260px,52svh)] w-full max-w-md flex-1 flex-col lg:mx-0 lg:min-h-0 lg:max-w-none">
+          <div className="order-1 flex min-h-0 w-full min-w-0 flex-col items-center lg:sticky lg:top-24 lg:order-2 lg:h-full lg:items-stretch lg:self-stretch">
+            <div className="relative mx-auto flex h-full min-h-[min(260px,52svh)] w-full max-w-md flex-1 flex-col lg:mx-0 lg:min-h-0 lg:max-w-none lg:w-full">
               <AboutVideo aria-label="Copper Skies live — Country Night performance clip" />
             </div>
           </div>

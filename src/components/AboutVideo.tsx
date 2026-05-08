@@ -30,6 +30,7 @@ export default function AboutVideo({ "aria-label": ariaLabel }: AboutVideoProps)
     if (typeof window === "undefined") return false
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches
   })
+  const [loadFailed, setLoadFailed] = useState(false)
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
@@ -60,17 +61,31 @@ export default function AboutVideo({ "aria-label": ariaLabel }: AboutVideoProps)
     <div className="relative flex h-full min-h-[min(260px,52svh)] w-full min-w-0 flex-1 flex-col lg:min-h-0">
       <div className={frameBoxClass}>
         <div className={frameInnerClass}>
-          <video
-            ref={ref}
-            className={videoClassName}
-            src={ABOUT_VIDEO_SRC}
-            muted
-            playsInline
-            loop
-            preload="metadata"
-            autoPlay={!reducedMotion}
-            aria-label={ariaLabel}
-          />
+          {!loadFailed ? (
+            <video
+              ref={ref}
+              className={videoClassName}
+              src={ABOUT_VIDEO_SRC}
+              muted
+              playsInline
+              loop
+              preload="auto"
+              autoPlay={!reducedMotion}
+              aria-label={ariaLabel}
+              onError={() => setLoadFailed(true)}
+            />
+          ) : (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-2xl bg-black/80 px-4 text-center sm:rounded-3xl">
+              <p className="text-sm font-medium text-white/90">Clip unavailable in this browser</p>
+              <a
+                href={ABOUT_VIDEO_SRC}
+                download
+                className="text-xs font-medium text-orange-400 underline-offset-2 hover:text-orange-300 hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+              >
+                Download video (MP4)
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>

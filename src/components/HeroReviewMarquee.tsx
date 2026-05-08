@@ -1,4 +1,3 @@
-import Link from "next/link"
 import {
   getReviewAttributionDisplay,
   heroReviewSnippets,
@@ -21,31 +20,33 @@ function SnippetCard({
   const href = reviewAnchorHref(reviewId)
 
   return (
-    <figure
+    <a
+      href={href}
       className={cn(
-        "relative z-[1] mx-1.5 w-[min(100%,17.5rem)] shrink-0 rounded-xl border border-white/[0.08] bg-black/35 px-3.5 py-3 text-left shadow-[0_4px_28px_-10px_rgba(0,0,0,0.65)] backdrop-blur-md sm:w-[19rem] sm:px-4 sm:py-3.5",
+        "group relative z-[1] mx-1.5 block w-[min(100%,17.5rem)] shrink-0 rounded-xl border border-white/[0.08] bg-black/35 px-3.5 py-3 text-left shadow-[0_4px_28px_-10px_rgba(0,0,0,0.65)] backdrop-blur-md transition-[border-color,background-color,box-shadow] duration-200 ease-out",
+        "hover:border-orange-400/25 hover:bg-black/45 hover:shadow-[0_8px_36px_-12px_rgba(0,0,0,0.55)]",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+        "sm:w-[19rem] sm:px-4 sm:py-3.5",
         className
       )}
+      aria-label={`Read full review from ${attribution}`}
       lang="en-NZ"
     >
-      <blockquote className="text-[0.7rem] font-medium leading-snug tracking-tight text-white/[0.92] sm:text-[0.8rem] sm:leading-snug">
-        <span className="text-white/35" aria-hidden>
-          {"\u201C"}
-        </span>
-        {quote}
-        <span className="text-white/35" aria-hidden>
-          {"\u201D"}
-        </span>
-      </blockquote>
-      <figcaption className="mt-2 border-t border-white/[0.06] pt-2 text-[0.6rem] font-medium sm:text-[0.65rem]">
-        <Link
-          href={href}
-          className="cursor-pointer text-white/45 underline-offset-2 transition-colors hover:text-orange-300 hover:underline focus-visible:rounded-sm focus-visible:text-orange-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-        >
+      <figure className="m-0">
+        <blockquote className="text-[0.7rem] font-medium leading-snug tracking-tight text-white/[0.92] sm:text-[0.8rem] sm:leading-snug">
+          <span className="text-white/35" aria-hidden>
+            {"\u201C"}
+          </span>
+          {quote}
+          <span className="text-white/35" aria-hidden>
+            {"\u201D"}
+          </span>
+        </blockquote>
+        <figcaption className="mt-2 border-t border-white/[0.06] pt-2 text-[0.6rem] font-medium text-white/55 transition-colors group-hover:text-orange-200/90 sm:text-[0.65rem]">
           {attribution}
-        </Link>
-      </figcaption>
-    </figure>
+        </figcaption>
+      </figure>
+    </a>
   )
 }
 
@@ -61,8 +62,8 @@ export function HeroReviewMarquee() {
         What couples say
       </h3>
       <p className="sr-only">
-        Highlights from real client reviews: repeat bookings, full dance floors, and guests
-        raving about the band. Each quote links to the full review below.
+        Highlights from real client reviews: repeat bookings, full dance floors, and guests raving
+        about the band. Each card links to the full review below.
       </p>
 
       {/* Static grid when user prefers reduced motion */}
@@ -94,7 +95,7 @@ export function HeroReviewMarquee() {
         </div>
       </div>
 
-      {/* md+: infinite marquee — links remain focusable (no aria-hidden on wrapper) */}
+      {/* md+: infinite marquee */}
       <div className="relative hidden overflow-hidden motion-reduce:hidden md:block">
         <div
           className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-black/80 to-transparent sm:w-14"

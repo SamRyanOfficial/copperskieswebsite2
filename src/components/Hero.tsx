@@ -57,19 +57,19 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/[0.12] lg:bg-black/[0.08]" aria-hidden />
       </div>
 
-      <div className="relative z-10 flex flex-1 flex-col justify-end pb-[max(2rem,calc(1rem+env(safe-area-inset-bottom,0px)))] pt-[max(4.25rem,calc(2.5rem+env(safe-area-inset-top,0px)))] ps-[max(1.75rem,env(safe-area-inset-left,0px))] pe-[max(1.75rem,env(safe-area-inset-right,0px))] sm:justify-center sm:px-8 sm:pb-14 sm:pt-[clamp(5rem,14vw,7rem)] md:px-10 lg:mx-auto lg:w-full lg:max-w-6xl lg:px-10 lg:pb-24 lg:pt-28">
+      <div className="relative z-10 flex flex-1 flex-col justify-end pb-[max(2rem,calc(1rem+env(safe-area-inset-bottom,0px)))] pt-[max(4.25rem,calc(2.5rem+env(safe-area-inset-top,0px)))] ps-[max(1.75rem,env(safe-area-inset-left,0px))] pe-[max(1.75rem,env(safe-area-inset-right,0px))] sm:px-8 sm:pb-12 sm:pt-[clamp(4.5rem,12vw,6.5rem)] md:px-10 lg:mx-auto lg:w-full lg:max-w-6xl lg:justify-center lg:px-10 lg:pb-24 lg:pt-28">
         <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700 motion-safe:ease-out mx-auto flex w-full max-w-2xl flex-col items-center text-center lg:max-w-[42rem]">
-          {/* Mobile: compact type + bottom-aligned stack so portrait faces stay visible */}
-          <h1 className="text-balance text-[clamp(1.125rem,calc(2.4vw+0.52rem),1.42rem)] font-bold leading-[1.22] tracking-[-0.018em] text-white drop-shadow-[0_3px_28px_rgba(0,0,0,0.55)] sm:text-[clamp(1.625rem,calc(4vw+0.85rem),2.35rem)] sm:leading-[1.18] sm:tracking-[-0.022em] md:text-[clamp(1.875rem,calc(4vw+0.5rem),3rem)] lg:text-[clamp(2.65rem,4vw,3.35rem)] lg:leading-[1.1] lg:tracking-[-0.028em]">
+          {/* Portrait / tablet (below lg): bottom stack + compact type — desktop wide photo uses centered hero */}
+          <h1 className="text-balance text-[clamp(1.125rem,calc(2.4vw+0.52rem),1.42rem)] font-bold leading-[1.22] tracking-[-0.018em] text-white drop-shadow-[0_3px_28px_rgba(0,0,0,0.55)] sm:text-[clamp(1.28rem,calc(1.75vw+0.62rem),1.75rem)] sm:leading-[1.2] sm:tracking-[-0.02em] lg:text-[clamp(2.65rem,4vw,3.35rem)] lg:leading-[1.1] lg:tracking-[-0.028em]">
             Tauranga Wedding & Corporate Duo
           </h1>
-          <p className="mt-5 max-w-xl text-pretty text-[clamp(0.8125rem,calc(1.65vw+0.48rem),0.92rem)] font-medium leading-[1.58] tracking-[0.01em] text-[#ece9e4]/95 drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:mt-9 sm:text-[clamp(0.9375rem,calc(2.2vw+0.65rem),1.125rem)] sm:leading-[1.68] md:mt-11 lg:max-w-[30rem] lg:text-lg lg:leading-relaxed">
+          <p className="mt-5 max-w-xl text-pretty text-[clamp(0.8125rem,calc(1.65vw+0.48rem),0.92rem)] font-medium leading-[1.58] tracking-[0.01em] text-[#ece9e4]/95 drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:mt-7 sm:text-[clamp(0.875rem,calc(1.15vw+0.58rem),1.02rem)] sm:leading-[1.65] lg:mt-11 lg:max-w-[30rem] lg:text-lg lg:leading-relaxed">
             <span className={heroLedeAccent}>High-energy live music</span> for weddings, events, and{" "}
             <span className={heroLedeAccent}>packed dance floors</span> across{" "}
             <span className={heroLedeAccent}>the Bay of Plenty</span>.
           </p>
 
-          <div className="mt-9 flex w-full max-w-[17rem] flex-col items-stretch gap-3 sm:mt-[3.25rem] sm:max-w-none sm:items-center sm:gap-[0.875rem] lg:mt-16 lg:max-w-none lg:flex-row lg:justify-center lg:gap-5">
+          <div className="mt-9 flex w-full max-w-[17rem] flex-col items-stretch gap-3 sm:mt-10 sm:max-w-none sm:items-center sm:gap-[0.875rem] lg:mt-16 lg:max-w-none lg:flex-row lg:justify-center lg:gap-5">
             <Button className={primaryBtn} asChild>
               <Link href="#contact" className="flex cursor-pointer items-center justify-center gap-2.5">
                 <Calendar className="h-[1.0625rem] w-[1.0625rem] shrink-0 sm:h-[1.125rem] sm:w-[1.125rem]" />
