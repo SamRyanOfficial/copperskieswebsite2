@@ -57,18 +57,18 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/[0.12] lg:bg-black/[0.08]" aria-hidden />
       </div>
 
-      <div className="relative z-10 flex flex-1 flex-col justify-center px-5 pb-[max(2.25rem,calc(1.25rem+env(safe-area-inset-bottom,0px)))] pt-[max(5.25rem,calc(3.25rem+env(safe-area-inset-top,0px)))] sm:px-6 sm:pb-14 sm:pt-[clamp(5rem,14vw,7rem)] lg:mx-auto lg:w-full lg:max-w-6xl lg:px-10 lg:pb-24 lg:pt-28">
-        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700 motion-safe:ease-out mx-auto flex w-full max-w-[36rem] flex-col items-center text-center lg:max-w-[42rem]">
-          <h1 className="text-balance text-[clamp(1.875rem,5.25vw,3.25rem)] font-bold leading-[1.14] tracking-[-0.028em] text-white drop-shadow-[0_4px_42px_rgba(0,0,0,0.5)] sm:leading-[1.1] lg:text-[clamp(2.75rem,4.2vw,3.35rem)]">
+      <div className="relative z-10 flex flex-1 flex-col justify-center pb-[max(2.75rem,calc(1.5rem+env(safe-area-inset-bottom,0px)))] pt-[max(5.25rem,calc(3.25rem+env(safe-area-inset-top,0px)))] ps-[max(1.75rem,env(safe-area-inset-left,0px))] pe-[max(1.75rem,env(safe-area-inset-right,0px))] sm:px-8 sm:pb-14 sm:pt-[clamp(5rem,14vw,7rem)] md:px-10 lg:mx-auto lg:w-full lg:max-w-6xl lg:px-10 lg:pb-24 lg:pt-28">
+        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700 motion-safe:ease-out mx-auto flex w-full max-w-2xl flex-col items-center text-center lg:max-w-[42rem]">
+          <h1 className="text-balance text-[clamp(1.625rem,calc(4vw+0.85rem),2.35rem)] font-bold leading-[1.18] tracking-[-0.022em] text-white drop-shadow-[0_4px_42px_rgba(0,0,0,0.5)] sm:text-[clamp(1.75rem,calc(3.5vw+1rem),2.75rem)] sm:leading-[1.12] md:text-[clamp(1.875rem,calc(4vw+0.5rem),3rem)] lg:text-[clamp(2.65rem,4vw,3.35rem)] lg:leading-[1.1] lg:tracking-[-0.028em]">
             Tauranga Wedding & Corporate Duo
           </h1>
-          <p className="mt-8 max-w-[26rem] text-pretty text-[clamp(1rem,2.45vw,1.125rem)] font-medium leading-[1.62] tracking-[0.015em] text-[#ece9e4]/95 drop-shadow-[0_2px_14px_rgba(0,0,0,0.48)] sm:mt-10 sm:max-w-xl sm:text-[1.0625rem] sm:leading-[1.68] lg:mt-11 lg:max-w-[30rem] lg:text-lg lg:leading-relaxed">
+          <p className="mt-9 max-w-xl text-pretty text-[clamp(0.9375rem,calc(2.2vw+0.65rem),1.125rem)] font-medium leading-[1.68] tracking-[0.012em] text-[#ece9e4]/95 drop-shadow-[0_2px_14px_rgba(0,0,0,0.48)] sm:mt-10 sm:text-[1.0625rem] sm:leading-[1.72] md:mt-11 lg:max-w-[30rem] lg:text-lg lg:leading-relaxed">
             <span className={heroLedeAccent}>High-energy live music</span> for weddings, events, and{" "}
             <span className={heroLedeAccent}>packed dance floors</span> across{" "}
             <span className={heroLedeAccent}>the Bay of Plenty</span>.
           </p>
 
-          <div className="mt-12 flex w-full flex-col items-center gap-4 sm:mt-[3.25rem] lg:mt-16 lg:flex-row lg:justify-center lg:gap-5">
+          <div className="mt-14 flex w-full max-w-[17rem] flex-col items-stretch gap-[0.875rem] sm:mt-[3.25rem] sm:max-w-none sm:items-center sm:gap-4 lg:mt-16 lg:max-w-none lg:flex-row lg:justify-center lg:gap-5">
             <Button className={primaryBtn} asChild>
               <Link href="#contact" className="flex cursor-pointer items-center justify-center gap-2.5">
                 <Calendar className="h-[1.0625rem] w-[1.0625rem] shrink-0 sm:h-[1.125rem] sm:w-[1.125rem]" />

@@ -11,8 +11,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-gray-800">
-      <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6">
-        <div className="flex h-16 min-w-0 items-center justify-between gap-2 sm:h-20 sm:gap-4">
+      <div className="mx-auto max-w-7xl px-5 pt-[env(safe-area-inset-top,0px)] sm:px-6 md:px-6">
+        <div className="flex h-16 min-w-0 items-center justify-between gap-3 sm:h-20 sm:gap-4">
           {/* Logo */}
           <Link
             href="/"
@@ -154,7 +154,7 @@ export default function Header() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-gray-800 bg-black/95 backdrop-blur-md">
-          <nav className="flex flex-col space-y-4 px-4 py-6">
+          <nav className="flex flex-col space-y-4 px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-6">
             <Link
               href="#about"
               className="text-lg font-medium text-gray-300 hover:text-orange-400 transition-colors duration-200 ease-out py-3 min-h-11 flex items-center justify-center text-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
