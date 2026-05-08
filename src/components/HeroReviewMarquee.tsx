@@ -4,16 +4,28 @@ import {
   heroReviewSnippets,
   reviewAnchorHref,
 } from "@/data/hero-review-snippets"
+import { cn } from "@/lib/utils"
 
 const MARQUEE_HEADING_ID = "hero-review-marquee-heading"
 
-function SnippetCard({ quote, reviewId }: { quote: string; reviewId: number }) {
+function SnippetCard({
+  quote,
+  reviewId,
+  className,
+}: {
+  quote: string
+  reviewId: number
+  className?: string
+}) {
   const attribution = getReviewAttributionDisplay(reviewId)
   const href = reviewAnchorHref(reviewId)
 
   return (
     <figure
-      className="relative z-[1] mx-1.5 w-[min(100%,17.5rem)] shrink-0 rounded-xl border border-white/[0.08] bg-black/35 px-3.5 py-3 text-left shadow-[0_4px_28px_-10px_rgba(0,0,0,0.65)] backdrop-blur-md sm:w-[19rem] sm:px-4 sm:py-3.5"
+      className={cn(
+        "relative z-[1] mx-1.5 w-[min(100%,17.5rem)] shrink-0 rounded-xl border border-white/[0.08] bg-black/35 px-3.5 py-3 text-left shadow-[0_4px_28px_-10px_rgba(0,0,0,0.65)] backdrop-blur-md sm:w-[19rem] sm:px-4 sm:py-3.5",
+        className
+      )}
       lang="en-NZ"
     >
       <blockquote className="text-[0.7rem] font-medium leading-snug tracking-tight text-white/[0.92] sm:text-[0.8rem] sm:leading-snug">
@@ -59,13 +71,31 @@ export function HeroReviewMarquee() {
         role="region"
         aria-labelledby={MARQUEE_HEADING_ID}
       >
-        {heroReviewSnippets.slice(0, 4).map((s) => (
+        {heroReviewSnippets.map((s) => (
           <SnippetCard key={s.id} quote={s.quote} reviewId={s.reviewId} />
         ))}
       </div>
 
-      {/* Infinite horizontal scroll — links remain focusable (no aria-hidden on wrapper) */}
-      <div className="relative overflow-hidden motion-reduce:hidden">
+      {/* Mobile / small tablet: swipeable row — full cards, no clipped marquee */}
+      <div
+        className="-mx-5 motion-reduce:hidden md:hidden"
+        role="region"
+        aria-labelledby={MARQUEE_HEADING_ID}
+      >
+        <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain px-5 pb-2 pt-0.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {heroReviewSnippets.map((s) => (
+            <SnippetCard
+              key={s.id}
+              quote={s.quote}
+              reviewId={s.reviewId}
+              className="snap-start mx-0 w-[min(17.5rem,calc(100vw-5rem))] scroll-ms-5 scroll-me-5 sm:w-[min(19rem,calc(100vw-5rem))]"
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* md+: infinite marquee — links remain focusable (no aria-hidden on wrapper) */}
+      <div className="relative hidden overflow-hidden motion-reduce:hidden md:block">
         <div
           className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-black/80 to-transparent sm:w-14"
           aria-hidden
