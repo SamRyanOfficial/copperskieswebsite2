@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Play, Calendar, MapPin } from "lucide-react"
+import { Play, Calendar } from "lucide-react"
 
 const HERO_IMAGE_DESKTOP = "/images/copper-skies-duo.jpg"
 /** Portrait — phones & tablets; wide shot from `lg` up */
@@ -12,11 +12,20 @@ const HERO_IMAGE_MOBILE = "/images/copper-skies-hero-mobile.png"
 /** Primary CTA — swap to `"Check Your Date"` for A/B tests; default matches live copy. */
 const HERO_PRIMARY_CTA_TEXT: "Check Availability" | "Check Your Date" = "Check Availability"
 
+const primaryBtn =
+  "min-h-[3rem] w-full max-w-[17rem] cursor-pointer rounded-xl border-0 bg-gradient-to-r from-orange-600 to-orange-500 px-6 py-3 text-[0.9375rem] font-semibold leading-none text-white shadow-lg shadow-orange-600/25 ring-1 ring-white/10 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.02] hover:from-orange-500 hover:to-orange-500 hover:shadow-xl hover:shadow-orange-500/30 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:min-h-[3.25rem] sm:text-base lg:min-h-[3.5rem] lg:w-[14.5rem] lg:max-w-none lg:rounded-2xl lg:px-7 lg:py-3.5 lg:text-[1.0625rem] lg:flex-shrink-0"
+
+const secondaryBtn =
+  "min-h-[3rem] w-full max-w-[17rem] cursor-pointer rounded-xl border border-white/22 bg-white/[0.06] px-6 py-3 text-[0.9375rem] font-medium leading-none text-white/92 shadow-none backdrop-blur-sm transition-[transform,background-color,border-color] duration-200 ease-out hover:scale-[1.02] hover:border-white/32 hover:bg-white/12 hover:text-white active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:min-h-[3.25rem] sm:text-base lg:min-h-[3.5rem] lg:w-[14.5rem] lg:max-w-none lg:rounded-2xl lg:px-7 lg:py-3.5 lg:text-[1.0625rem] lg:flex-shrink-0"
+
+/** Copper accent phrases — standalone gradient text (not nested inside bg-clip parents) */
+const heroLedeAccent =
+  "bg-gradient-to-r from-orange-300 via-orange-200 to-amber-100 bg-clip-text font-semibold text-transparent drop-shadow-[0_0_14px_rgba(251,146,60,0.28)]"
+
 export default function Hero() {
-  // min-height uses svh (stable) not dvh — dynamic vh was resizing the hero when mobile browser chrome hid/showed on scroll
   return (
-    <section className="relative flex min-h-[85svh] flex-col justify-center overflow-hidden sm:min-h-[72.25svh] lg:min-h-screen">
-      {/* Background: portrait on mobile, existing wide shot from md up */}
+    <section className="relative flex min-h-[88svh] flex-col overflow-hidden sm:min-h-[76svh] lg:min-h-screen">
+      {/* Background: portrait on mobile, wide shot from lg */}
       <div className="absolute inset-0">
         <Image
           src={HERO_IMAGE_MOBILE}
@@ -36,93 +45,43 @@ export default function Hero() {
           className="hidden object-cover object-center lg:block"
           aria-hidden
         />
-        {/* Readability: deep cinematic gradient — dark at bottom ~75–80% */}
+        {/* Readability: deeper cinematic scrim (busy backgrounds / windows) */}
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/45 to-black/[0.78]"
+          className="absolute inset-0 bg-gradient-to-b from-black/[0.28] via-black/[0.5] to-black/[0.86]"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-black/[0.58] via-black/20 to-transparent lg:from-black/50 lg:via-transparent lg:to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-black/[0.64] via-black/[0.28] to-black/[0.12] lg:from-black/[0.54] lg:via-black/[0.22] lg:to-black/[0.08]"
           aria-hidden
         />
+        <div className="absolute inset-0 bg-black/[0.12] lg:bg-black/[0.08]" aria-hidden />
       </div>
 
-      <div className="absolute left-1/2 top-[44%] z-10 flex w-full max-w-4xl -translate-x-1/2 flex-col items-center px-5 pt-1 text-center sm:px-6 md:top-[42%] max-lg:pb-[max(2rem,calc(0.75rem+env(safe-area-inset-bottom,0px)))] lg:relative lg:top-auto lg:left-auto lg:mx-auto lg:translate-x-0 lg:py-10">
-        {/* Brand (1) — smaller + lower opacity so H1 leads */}
-        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-700 motion-safe:ease-out opacity-80">
-          <div className="relative">
-            <Image
-              src="/images/copper-skies-logo.png"
-              alt="Copper Skies"
-              width={600}
-              height={180}
-              className="mx-auto h-auto w-[min(calc(100vw-2.5rem),248px)] sm:w-[312px] lg:w-[330px] xl:w-[min(565px,90vw)] 2xl:w-[min(600px,min(80vw,48rem))]"
-              style={{
-                filter:
-                  "drop-shadow(0 0 1px rgba(0,0,0,0.85)) drop-shadow(0 1px 2px rgba(0,0,0,0.7)) drop-shadow(0 2px 4px rgba(0,0,0,0.6))",
-                WebkitFilter:
-                  "drop-shadow(0 0 1px rgba(0,0,0,0.85)) drop-shadow(0 1px 2px rgba(0,0,0,0.7)) drop-shadow(0 2px 4px rgba(0,0,0,0.6))",
-              }}
-            />
-          </div>
-        </div>
-
-        {/* (2) H1 (3) proof + (4) emotional (grouped) — flow: headline → sub-cluster → detail → CTA */}
-        <div
-          className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-700 motion-safe:delay-75 motion-safe:ease-out mt-8 w-full min-w-0 sm:mt-11 lg:mt-14"
-        >
-          <div className="mx-auto w-full max-w-[min(100%,32rem)] sm:max-w-2xl lg:max-w-[40rem]">
-            <h1 className="flex flex-col items-center gap-0.5 text-center text-[clamp(1.425rem,5.13vw,3.09rem)] font-extrabold tracking-[-0.03em] text-white drop-shadow-[0_2px_32px_rgba(0,0,0,0.55)] sm:gap-1">
-              <span className="block min-w-0 text-balance leading-[0.99]">Tauranga Wedding Band</span>
-              <span className="block min-w-0 leading-[0.99]">Live Music Duo</span>
-            </h1>
-            <div className="mx-auto mt-8 max-w-[min(100%,28rem)] space-y-1.5 sm:mt-9 sm:max-w-md sm:space-y-2 md:mt-9 lg:max-w-lg">
-              <p className="text-balance text-[clamp(0.9rem,2.7vw,1.15rem)] font-medium leading-snug tracking-tight text-white/90">
-                Tauranga & Bay of Plenty&rsquo;s most in-demand wedding band for high-energy live music
-              </p>
-              <p className="text-balance text-[clamp(0.8rem,2.45vw,1.02rem)] font-medium leading-snug tracking-tight text-white/55">
-                Music that gets people <span className="text-orange-400/85">dancing</span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* (5) CTAs — final step, extra air above */}
-        <div
-          className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 mt-11 flex w-full max-w-md flex-col items-center gap-[0.575rem] motion-safe:delay-200 sm:mt-14 lg:max-w-none lg:mt-16 lg:flex-row lg:gap-[1.15rem] lg:justify-center"
-        >
-          <Button
-            className="min-h-[2.875rem] w-full max-w-[14.6625rem] cursor-pointer rounded-xl border-0 bg-gradient-to-r from-orange-600 to-orange-500 px-[1.15rem] py-[0.575rem] text-[0.8625rem] font-semibold leading-tight text-white shadow-lg shadow-orange-600/30 ring-1 ring-white/10 transition-[transform,box-shadow,background-color] duration-200 ease-out hover:scale-[1.02] hover:from-orange-500 hover:to-orange-500 hover:shadow-xl hover:shadow-orange-500/35 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:min-h-[3.1625rem] sm:text-[1.00625rem] lg:min-h-[3.7375rem] lg:w-[230px] lg:max-w-none lg:rounded-2xl lg:px-[1.725rem] lg:py-[1.15rem] lg:text-[1.15rem] lg:leading-normal lg:flex-shrink-0"
-            asChild
-          >
-            <Link href="#contact" className="flex cursor-pointer items-center justify-center gap-[0.575rem] lg:gap-[0.575rem]">
-              <Calendar className="h-[1.00625rem] w-[1.00625rem] shrink-0 sm:h-[1.15rem] sm:w-[1.15rem] lg:h-[1.15rem] lg:w-[1.15rem]" />
-              {HERO_PRIMARY_CTA_TEXT}
-            </Link>
-          </Button>
-          <Button
-            variant="ghost"
-            className="min-h-[2.875rem] w-full max-w-[14.6625rem] cursor-pointer rounded-xl border border-white/25 bg-white/5 px-[1.15rem] py-[0.575rem] text-[0.8625rem] font-medium leading-tight text-white/90 shadow-none backdrop-blur-sm transition-[transform,background-color,border-color,opacity] duration-200 ease-out hover:scale-[1.02] hover:border-white/35 hover:bg-white/10 hover:text-white active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:min-h-[3.1625rem] sm:text-[1.00625rem] lg:min-h-[3.7375rem] lg:w-[230px] lg:max-w-none lg:rounded-2xl lg:px-[1.725rem] lg:py-[1.15rem] lg:text-[1.15rem] lg:leading-normal lg:flex-shrink-0"
-            asChild
-          >
-            <Link href="#music" className="flex cursor-pointer items-center justify-center gap-[0.575rem] lg:gap-[0.575rem]">
-              <Play className="h-[1.00625rem] w-[1.00625rem] shrink-0 opacity-90 sm:h-[1.15rem] sm:w-[1.15rem] lg:h-[1.15rem] lg:w-[1.15rem]" />
-              Watch Live Video
-            </Link>
-          </Button>
-        </div>
-
-        {/* (6) Services / area — under CTAs, least emphasis (md+; compact hero on small phones) */}
-        <div className="hidden motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 md:mt-6 md:block md:w-full motion-safe:delay-100 lg:mt-7">
-          <p className="mx-auto flex w-full min-w-0 max-w-full flex-nowrap items-center justify-center gap-x-1.5 text-center text-[clamp(6.3px,0.42rem+0.4725vw,9.975px)] font-normal leading-none tracking-tight text-white/80 sm:gap-x-2">
-            <MapPin
-              className="h-2.5 w-2.5 shrink-0 text-orange-400/80 sm:h-3 sm:w-3"
-              aria-hidden
-            />
-            <span className="shrink-0 whitespace-nowrap">
-              Weddings, corporate events, and private parties across Tauranga and the Bay of Plenty
-            </span>
+      <div className="relative z-10 flex flex-1 flex-col justify-center px-5 pb-[max(2.25rem,calc(1.25rem+env(safe-area-inset-bottom,0px)))] pt-[max(5.25rem,calc(3.25rem+env(safe-area-inset-top,0px)))] sm:px-6 sm:pb-14 sm:pt-[clamp(5rem,14vw,7rem)] lg:mx-auto lg:w-full lg:max-w-6xl lg:px-10 lg:pb-24 lg:pt-28">
+        <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700 motion-safe:ease-out mx-auto flex w-full max-w-[36rem] flex-col items-center text-center lg:max-w-[42rem]">
+          <h1 className="text-balance text-[clamp(1.875rem,5.25vw,3.25rem)] font-bold leading-[1.14] tracking-[-0.028em] text-white drop-shadow-[0_4px_42px_rgba(0,0,0,0.5)] sm:leading-[1.1] lg:text-[clamp(2.75rem,4.2vw,3.35rem)]">
+            Tauranga Wedding & Corporate Duo
+          </h1>
+          <p className="mt-8 max-w-[26rem] text-pretty text-[clamp(1rem,2.45vw,1.125rem)] font-medium leading-[1.62] tracking-[0.015em] text-[#ece9e4]/95 drop-shadow-[0_2px_14px_rgba(0,0,0,0.48)] sm:mt-10 sm:max-w-xl sm:text-[1.0625rem] sm:leading-[1.68] lg:mt-11 lg:max-w-[30rem] lg:text-lg lg:leading-relaxed">
+            <span className={heroLedeAccent}>High-energy live music</span> for weddings, events, and{" "}
+            <span className={heroLedeAccent}>packed dance floors</span> across{" "}
+            <span className={heroLedeAccent}>the Bay of Plenty</span>.
           </p>
+
+          <div className="mt-12 flex w-full flex-col items-center gap-4 sm:mt-[3.25rem] lg:mt-16 lg:flex-row lg:justify-center lg:gap-5">
+            <Button className={primaryBtn} asChild>
+              <Link href="#contact" className="flex cursor-pointer items-center justify-center gap-2.5">
+                <Calendar className="h-[1.0625rem] w-[1.0625rem] shrink-0 sm:h-[1.125rem] sm:w-[1.125rem]" />
+                {HERO_PRIMARY_CTA_TEXT}
+              </Link>
+            </Button>
+            <Button variant="ghost" className={secondaryBtn} asChild>
+              <Link href="#music" className="flex cursor-pointer items-center justify-center gap-2.5">
+                <Play className="h-[1.0625rem] w-[1.0625rem] shrink-0 opacity-90 sm:h-[1.125rem] sm:w-[1.125rem]" />
+                Watch Live Video
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
 
